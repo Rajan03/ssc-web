@@ -3,25 +3,67 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --navbar-height-mob: 15rem;
+    --navbar-height: 20rem;
+
+    --except-nav-mob: calc(100vh - var(--navbar-height-mob));
+    --except-nav: calc(100vh - var(--navbar-height));
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@layer utilities {
+    .p-for-nav {
+        padding-top: var(--navbar-height-mob);
+    }
+
+    @media (min-width: 640px) {
+        .p-for-nav {
+            padding-top: var(--navbar-height);
+        }
+    }
+
+    .h-except-nav {
+        height: var(--except-nav-mob);
+    }
+
+    @media (min-width: 640px) {
+        .h-except-nav {
+            height: var(--except-nav);
+        }
+    }
+
+    .h-navbar {
+        height: var(--navbar-height-mob);
+    }
+
+    @media (min-width: 640px) {
+        .h-navbar {
+            height: var(--navbar-height);
+        }
+    }
+}
+
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+
+    @apply antialiased;
+
+    @media screen(sm) {
+        font-size: 50%;
+    }
+
+    @media screen(md) {
+        font-size: 56.25%;
+    }
+
+    @media screen(lg) {
+        font-size: 62.5%;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    @apply bg-neutral-50;
+    font-size: 1.6rem;
+    line-height: 1.5;
 }
