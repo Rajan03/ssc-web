@@ -14,6 +14,7 @@ const Hero: React.FC<SanityHeroHome> = (props) => {
         </div>
 
         {/* HERO Images Section */}
+        <div className="flex flex-col items-center justify-center gap-y-6"></div>
       </section>
     </>
   );
