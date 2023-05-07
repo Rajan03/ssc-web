@@ -11,7 +11,7 @@ type Props = {
 
 // Component
 const Home: React.FC<Props> = ({ data }) => {
-  const { hero } = data;
+  const { hero } = data; 
 
   return (
     <>
