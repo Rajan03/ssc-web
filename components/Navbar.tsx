@@ -46,13 +46,13 @@ const Navbar = () => {
     <>
       <nav
         className="container fixed top-0 left-1/2 -translate-x-1/2 flex flex-col
-      transition-all duration-300 ease-in-out h-navbar"
+      transition-all duration-300 ease-in-out h-navbar z-30"
       >
         {/* TOP BAR */}
         <TopBar />
 
         {/* NAVBAR */}
-        <div className="relative flex flex-col items-stretch justify-start gap-y-6 rounded bg-white shadow-lg shadow-gray-200/80">
+        <div className="relative flex flex-col items-stretch justify-start gap-y-6 rounded bg-white shadow-lg shadow-black/5">
           {/* LOGO AND MENU BTN */}
           <div className="max-h-[8rem] py-4 self-center">
             <Logo />
@@ -103,7 +103,7 @@ export default Navbar;
 
 const TopBar = () => {
   return (
-    <div className="flex items-center justify-end h-20 p-4">
+    <div className="flex items-center justify-end h-20 p-4 top-nav">
       <TopItem
         text="We help take your strengths the next level."
         IconName={FaBell}

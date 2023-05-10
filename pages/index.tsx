@@ -22,6 +22,9 @@ const Home: React.FC<Props> = ({ data }) => {
       <main className={`relative h-full p-for-nav`}>
         {/* Hero */}
         <Hero {...hero} />
+
+        {/* About */}
+        <div className="h-full w-full"></div>
       </main>
     </>
   );
