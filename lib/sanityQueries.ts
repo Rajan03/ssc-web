@@ -11,7 +11,7 @@ export const GET_HOME_HERO = groq`
 
 export const GET_HOME_ABOUT = groq`
 *[_type=="aboutHome" && active == true][0] {
-  name, 
+  'title': name, 
   subtitle,
   "description": description[][0].children[][0].text,
   count

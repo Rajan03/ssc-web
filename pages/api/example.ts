@@ -1,5 +1,7 @@
+import connectDB from '@/lib/db.config';
 import { NextApiRequest, NextApiResponse } from 'next';
 
+/// Remains Same
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -24,9 +26,15 @@ export default async function handler(
  */
 const GET = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
+    // Database Connection
+    await connectDB();
+
+    // Database Data Fetch
+    // Change Code Here....
+    // Return Data
     res.status(200).json({
       status: 'success',
-      message: 'Hello Chuje from API',
+      message: 'Hello from API',
     });
   } catch (error: any) {
     res.status(500).json({ message: error.message });

@@ -1,5 +1,6 @@
 import { Button, SectionHeader } from '@/components';
 import { SanityHeroHome } from '@/types';
+import clsx from 'clsx';
 import Image from 'next/image';
 import { DragEvent, DragEventHandler, useState } from 'react';
 
@@ -18,7 +19,7 @@ const Hero: React.FC<SanityHeroHome> = (props) => {
     <>
       <section className="container mx-auto h-full flex flex-col sm:flex-row items-center justify-center">
         {/* HERO Text Section */}
-        <div className="flex flex-col justify-start px-8 items-center sm:items-start flex-1">
+        <div className="flex flex-col justify-start px-8 items-center sm:items-start flex-[55%]">
           <SectionHeader title={subtitle} className="mb-4" />
           <div className="text-6xl font-bold text-dark leading-sm text-center sm:text-start">
             {name}
@@ -38,15 +39,39 @@ const Hero: React.FC<SanityHeroHome> = (props) => {
 
         {/* HERO Images Section */}
         <div
-          className="relative flex-1 h-1/2 flex items-center justify-center gap-y-6 overflow-hidden"
+          className="relative flex-[45%] h-3/4 flex items-center justify-center gap-y-6 "
           onDragStart={changeImage}
         >
-          <Image
-            src={images[activeImage]}
-            alt={'image'}
-            fill
-            className="rounded-xl select-none object-cover object-center w-full h-full transition-transform duration-200"
-          />
+          {images.map((image, index) => (
+            <Image
+              key={index}
+              src={image}
+              alt={'image'}
+              fill
+              className={clsx(
+                'rounded select-none object-cover object-center w-full h-full transition-transform duration-200',
+                index === activeImage ? 'scale-100' : 'scale-90'
+              )}
+            />
+          ))}
+
+          {/* Dots */}
+          <div className="flex flex-col justify-start items-center gap-y-8 absolute bottom-0 -left-16">
+            {images.map((_, i) => (
+              <span
+                key={i}
+                onClick={() => setActiveImage(i)}
+                className={clsx(
+                  'h-6 w-6 rounded-full ',
+                  i === activeImage ? 'bg-primary ' : 'border-4 border-primary',
+                  'transition-all duration-200 cursor-pointer',
+                  i === activeImage ? 'scale-125' : 'scale-100',
+                  i === activeImage &&
+                    'before:h-full before:w-full before:absolute before:rounded-full before:border-2 before:border-primary before:opacity-50 before:scale-150 before:transform before:-translate-x-1 before:-translate-y-1'
+                )}
+              />
+            ))}
+          </div>
         </div>
       </section>
     </>
