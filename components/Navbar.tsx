@@ -24,7 +24,7 @@ const Navbar = () => {
   // NAV MENU ICON CLASSES
   const menuIconClasses = (forOpen: boolean) =>
     clsx(
-      'absolute top-8 right-10 text-6xl text-primary cursor-pointer sm:hidden transition-all duration-300 ease-in-out ',
+      'absolute top-8 right-10 text-6xl text-primary-600 cursor-pointer sm:hidden transition-all duration-300 ease-in-out ',
       forOpen
         ? isOpen
           ? 'w-12 h-12 '
@@ -45,14 +45,14 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className="container fixed top-0 left-1/2 -translate-x-1/2 flex flex-col
+        className="w-full fixed top-0 left-1/2 -translate-x-1/2 flex flex-col
       transition-all duration-300 ease-in-out h-navbar z-30"
       >
         {/* TOP BAR */}
         <TopBar />
 
         {/* NAVBAR */}
-        <div className="relative flex flex-col items-stretch justify-start gap-y-6 rounded bg-white shadow-lg shadow-black/5">
+        <div className="flex-1 relative flex flex-col items-stretch justify-start gap-y-6 rounded bg-white shadow-lg shadow-black/5">
           {/* LOGO AND MENU BTN */}
           <div className="max-h-[8rem] py-4 self-center">
             <Logo />
@@ -69,7 +69,7 @@ const Navbar = () => {
           </div>
 
           {/* NAV ITEMS - ON TABLET AND LARGER SCREENS */}
-          <div className="hidden sm:flex flex-1 items-center justify-evenly gap-x-4 pt-4 pb-6">
+          <div className="container mx-auto px-4  hidden sm:flex flex-1 items-center justify-between gap-x-4 pt-4 pb-6">
             {navItems.map((item, i) => (
               <NavItem
                 key={item.text + i}
@@ -103,7 +103,7 @@ export default Navbar;
 
 const TopBar = () => {
   return (
-    <div className="flex items-center justify-end h-20 p-4 top-nav">
+    <div className="container mx-auto flex items-center justify-end h-20 p-4 top-nav">
       <TopItem
         text="We help take your strengths the next level."
         IconName={FaBell}
@@ -126,7 +126,7 @@ const TopItem: FC<{ text: string; IconName: IconType; className?: string }> = ({
 }) => {
   return (
     <div className={'flex items-center justify-start gap-x-4 ' + className}>
-      <IconName className="text-3xl text-primary" />
+      <IconName className="text-3xl text-primary-600" />
       <span className="text-xl font-medium text-dark max-w-lg truncate">
         {text}
       </span>
@@ -142,10 +142,10 @@ const NavItem: FC<{
 }> = ({ text, url, className, selected }) => {
   const linkClassName = clsx(
     'text-xl font-bold px-8 sm:px-0 text-dark uppercase text-left transition-all duration-300 ease-in-out ' +
-      'hover:text-primary hover:scale-110  ' +
+      'hover:text-primary-600 hover:scale-110  ' +
       (selected &&
         ' scale-100 before:absolute before:bottom-[-2px] before:left-0 before:h-1 before:w-full' +
-          'before:bg-primary before:rounded-xl '),
+          'before:bg-primary-600 before:rounded-xl '),
     className
   );
 

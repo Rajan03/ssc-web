@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = (props) => {
   const btnClass = clsx(
     'max-w-[13rem] rounded font-medium transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary hover:opacity-80 active:opacity-100',
     'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:opacity-50 disabled:active:opacity-50 flex items-center justify-center gap-x-2',
-    { 'bg-primary text-white': theme === 'primary' },
+    { 'bg-primary-600 text-white': theme === 'primary' },
     { 'bg-secondary text-white': theme === 'secondary' },
     { 'bg-neutral-200 text-dark': theme === 'neutral' },
     { 'text-sm px-2 py-2': size === 'small' },

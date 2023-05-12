@@ -48,6 +48,7 @@ const Hero: React.FC<SanityHeroHome> = (props) => {
               src={image}
               alt={'image'}
               fill
+              priority
               className={clsx(
                 'rounded select-none object-cover object-center w-full h-full transition-transform duration-200',
                 index === activeImage ? 'scale-100' : 'scale-90'
@@ -63,11 +64,13 @@ const Hero: React.FC<SanityHeroHome> = (props) => {
                 onClick={() => setActiveImage(i)}
                 className={clsx(
                   'h-6 w-6 rounded-full ',
-                  i === activeImage ? 'bg-primary ' : 'border-4 border-primary',
+                  i === activeImage
+                    ? 'bg-primary-600 '
+                    : 'border-4 border-primary-600',
                   'transition-all duration-200 cursor-pointer',
                   i === activeImage ? 'scale-125' : 'scale-100',
                   i === activeImage &&
-                    'before:h-full before:w-full before:absolute before:rounded-full before:border-2 before:border-primary before:opacity-50 before:scale-150 before:transform before:-translate-x-1 before:-translate-y-1'
+                    'before:h-full before:w-full before:absolute before:rounded-full before:border-2 before:border-primary-600 before:opacity-50 before:scale-150 before:transform before:-translate-x-1 before:-translate-y-1'
                 )}
               />
             ))}
