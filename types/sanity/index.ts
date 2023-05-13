@@ -7,7 +7,7 @@ export interface SanityHeroHome {
 }
 
 export interface SanityAboutHome {
-  name: string;
+  title: string;
   subtitle: string;
   description: string;
   count: number;

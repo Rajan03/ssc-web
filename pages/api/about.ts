@@ -1,5 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
+// get,
+// async await, try catch
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -16,18 +19,12 @@ export default async function handler(
   }
 }
 
-/**
- * GET method
- * @param req
- * @param res
- * @description Get HOME page data from sanity studion via sanityGet helper function
- */
 const GET = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    res.status(200).json({
-      status: 'success',
-      message: 'Hello Chuje from API',
-    });
+    // database
+    // await database connection
+    // await database data fetch
+    // return data
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
