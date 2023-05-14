@@ -41,6 +41,16 @@ module.exports = {
         sm: '1.25',
         base: '1',
       },
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-in-out forwards',
+        'fade-out': 'fadeOut 0.5s ease-in-out forwards',
+      },
+      screens: {
+        vsm: '400px',
+        sm: '640px',
+        md: '768px',
+        lg: '1026px',
+      },
     },
   },
   plugins: [],

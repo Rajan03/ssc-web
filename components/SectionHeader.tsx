@@ -16,7 +16,7 @@ const SectionHeader: React.FC<Props> = ({ title, showLine, className }) => {
         )}
 
         {/* Title */}
-        <h5 className="text-3xl leading-4 font-bold text-start text-primary-600">
+        <h5 className="text-3xl leading-4 uppercase font-bold text-start text-primary-600">
           {title}
         </h5>
       </div>

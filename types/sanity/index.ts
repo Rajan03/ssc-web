@@ -3,7 +3,7 @@ export interface SanityHeroHome {
   name: string;
   subtitle: string;
   description: string;
-  images: string[];
+  image: string;
 }
 
 export interface SanityAboutHome {
@@ -14,7 +14,7 @@ export interface SanityAboutHome {
 }
 
 export interface SanityServicesHome {
-  name: string;
+  title: string;
   subtitle: string;
 }
 

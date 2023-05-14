@@ -49,7 +49,9 @@ const Navbar = () => {
       transition-all duration-300 ease-in-out h-navbar z-30"
       >
         {/* TOP BAR */}
-        <TopBar />
+        <div className="top-nav">
+          <TopBar />
+        </div>
 
         {/* NAVBAR */}
         <div className="flex-1 relative flex flex-col items-stretch justify-start gap-y-6 rounded bg-white shadow-lg shadow-black/5">
@@ -103,7 +105,7 @@ export default Navbar;
 
 const TopBar = () => {
   return (
-    <div className="container mx-auto flex items-center justify-end h-20 p-4 top-nav">
+    <div className="container mx-auto flex items-center justify-end h-20 p-4">
       <TopItem
         text="We help take your strengths the next level."
         IconName={FaBell}

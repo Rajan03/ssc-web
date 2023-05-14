@@ -1,4 +1,4 @@
-import { About, Hero } from '@/modules/home';
+import { About, Hero, Services } from '@/modules/home';
 import { getHomeData } from '@/services/sanityService';
 import { IHomePage } from '@/types';
 import { GetStaticProps } from 'next';
@@ -11,7 +11,7 @@ type Props = {
 
 // Component
 const Home: React.FC<Props> = ({ data }) => {
-  const { hero, about } = data;
+  const { hero, about, services } = data;
 
   return (
     <>
@@ -19,12 +19,15 @@ const Home: React.FC<Props> = ({ data }) => {
         <title>SSC | Home</title>
       </Head>
 
-      <main className={`relative h-full p-for-nav`}>
+      <main className={`relative h-[inherit] p-for-nav`}>
         {/* Hero */}
         <Hero {...hero} />
 
         {/* About */}
         <About {...about} />
+
+        {/* Services */}
+        <Services {...services} />
       </main>
     </>
   );

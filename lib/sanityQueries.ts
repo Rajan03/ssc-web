@@ -4,8 +4,8 @@ export const GET_HOME_HERO = groq`
 *[_type=="heroHome" && active == true][0] {
   name, 
   subtitle,
-  "description": description[][0].children[][0].text,
-  "images": images[].asset->url
+  "image": image.asset->url,
+  "description": description[][0].children[][0].text
 }
 `;
 
@@ -20,7 +20,7 @@ export const GET_HOME_ABOUT = groq`
 
 export const GET_HOME_SERVICES = groq`
 *[_type=="servicesHome" && active == true][0] {
-  name,
+  "title":name,
   subtitle,
 }
 `;
