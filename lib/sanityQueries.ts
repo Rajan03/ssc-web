@@ -14,7 +14,8 @@ export const GET_HOME_ABOUT = groq`
   'title': name, 
   subtitle,
   "description": description[][0].children[][0].text,
-  count
+  count,
+  "images": images[].asset->url
 }
 `;
 

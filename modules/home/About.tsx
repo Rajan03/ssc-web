@@ -9,6 +9,7 @@ const About: React.FC<SanityAboutHome> = ({
   subtitle,
   description,
   count,
+  images,
 }) => {
   //TODO: Add images in sanity and add them here
   return (
@@ -22,21 +23,21 @@ const About: React.FC<SanityAboutHome> = ({
         <div className="relative w-full h-full flex-[65%] flex justify-start gap-x-12 sm:py-20">
           <div className="w-full h-full sm:w-1/2">
             <Image
-              src="https://img.freepik.com/free-photo/businessmen-thumbs-up-looking-camera_23-2148308508.jpg?w=1380&t=st=1683994160~exp=1683994760~hmac=7e9befb65a1803f7b8859f26bbc43c6a5d85770058d79906efca5833cf477379"
+              src={images[0]}
               alt="hero"
               height={200}
               width={200}
-              className="rounded select-none object-cover object-right w-full h-full sm:max-h-[70%]"
+              className="rounded select-none object-cover object-right w-full h-full"
             />
           </div>
 
           <div className="hidden sm:inline-flex w-1/2 h-full">
             <Image
-              src="https://img.freepik.com/free-photo/business-executives-walking-conference-center-lobby_107420-63851.jpg?w=740&t=st=1683994232~exp=1683994832~hmac=26da386b5de3714131dfb682078c0b091fa4746143125d4c2e7da2d632eb5c80"
+              src={images[1]}
               alt="hero"
               height={200}
               width={200}
-              className="rounded select-none object-cover object-bottom w-full h-full"
+              className="rounded select-none object-cover object-right w-full h-full"
             />
           </div>
 

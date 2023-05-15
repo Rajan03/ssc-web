@@ -11,6 +11,7 @@ export interface SanityAboutHome {
   subtitle: string;
   description: string;
   count: number;
+  images: string[];
 }
 
 export interface SanityServicesHome {

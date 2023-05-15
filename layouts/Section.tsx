@@ -17,7 +17,7 @@ const SectionLayout: React.FC<Props> = ({
   columnFlex = false,
 }) => {
   const containerClass = clsx(
-    'h-[inherit] flex items-stretch justify-start',
+    'flex items-stretch justify-start',
     withContainer && 'container mx-auto',
     rowFlex && 'flex-row',
     columnFlex && 'flex-col',

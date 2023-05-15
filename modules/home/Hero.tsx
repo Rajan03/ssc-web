@@ -8,7 +8,7 @@ const Hero: React.FC<SanityHeroHome> = (props) => {
 
   return (
     <>
-      <SectionLayout className="relative overflow-hidden">
+      <SectionLayout className="relative overflow-hidden h-[inherit]">
         <div
           className="md:w-[60%] bg-primary-600 left-6 absolute w-full h-full 
         md:rounded-br-[70%]"

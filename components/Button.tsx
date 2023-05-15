@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { IconType } from 'react-icons';
 
 type ButtonProps = {
-  text: string;
+  text?: string;
   onClick: () => void;
 
   type?: 'button' | 'submit' | 'reset'; // default button
@@ -15,6 +15,7 @@ type ButtonProps = {
   Icon?: IconType;
   iconPosition?: 'left' | 'right'; // default left
   className?: string;
+  iconClassName?: string;
 };
 
 const Button: React.FC<ButtonProps> = (props) => {
@@ -31,6 +32,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     onlyText,
     iconPosition,
     className,
+    iconClassName,
   } = props;
 
   const btnClass = clsx(
@@ -73,10 +75,14 @@ const Button: React.FC<ButtonProps> = (props) => {
         type={type}
         disabled={disabled}
       >
-        {Icon && iconPosition === 'left' && <Icon className="h-6 w-8" />}
+        {Icon && iconPosition === 'left' && (
+          <Icon className={iconClassName ? ' ' + iconClassName : 'h-6 w-8'} />
+        )}
 
-        <span>{text}</span>
-        {Icon && iconPosition === 'right' && <Icon className="h-6 w-6" />}
+        {text && <span>{text}</span>}
+        {Icon && iconPosition === 'right' && (
+          <Icon className={iconClassName ? ' ' + iconClassName : 'h-6 w-8'} />
+        )}
       </button>
     </>
   );
