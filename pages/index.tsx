@@ -49,7 +49,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         ...res,
         services: {
           ...res.services,
-          services: services.data,
+          services: JSON.parse(JSON.stringify(services.data)),
         },
       },
     },
