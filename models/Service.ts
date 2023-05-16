@@ -1,7 +1,8 @@
+import { Section, Service } from '@/types';
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
-const subServiceSchema = new Schema({
+const subServiceSchema = new Schema<Section>({
   title: {
     type: String,
     trim: true,
@@ -16,33 +17,43 @@ const subServiceSchema = new Schema({
   },
 });
 
-const serviceSchema = new Schema({
-  title: {
-    type: String,
-    trim: true,
-    required: [true, 'Please add a title'],
-  },
+const serviceSchema = new Schema<Service>(
+  {
+    title: {
+      type: String,
+      trim: true,
+      required: [true, 'Please add a title'],
+    },
 
-  description: {
-    type: String,
-    required: [true, 'Please add a description'],
-  },
+    description: {
+      type: String,
+      required: [true, 'Please add a description'],
+    },
 
-  image: {
-    type: String,
-    required: [true, 'Please add an image'],
-  },
+    shortDescription: {
+      type: String,
+      trim: true,
+    },
 
-  sections: {
-    type: [subServiceSchema],
-    required: [true, 'Please add at least one section'],
-  },
+    image: {
+      type: String,
+      required: [true, 'Please add an image'],
+    },
 
-  showOnHome: {
-    type: Boolean,
-    default: false,
+    sections: {
+      type: [subServiceSchema],
+      required: [true, 'Please add at least one section'],
+    },
+
+    showOnHome: {
+      type: Boolean,
+      default: false,
+    },
   },
-});
+  {
+    timestamps: true,
+  }
+);
 
 serviceSchema.pre('save', async function (next) {
   const service = this as any;
@@ -53,5 +64,5 @@ serviceSchema.pre('save', async function (next) {
   next();
 });
 
-export default mongoose.models.Service ||
-  mongoose.model('Service', serviceSchema);
+export default mongoose.models.ConsultingService ||
+  mongoose.model('ConsultingService', serviceSchema);

@@ -1,15 +1,14 @@
+import { Service } from '@/types';
 import Image from 'next/image';
 import { HiExternalLink } from 'react-icons/hi';
 import Button from './Button';
 
-const ServiceCard = () => {
-  const imgAdd =
-    'https://img.freepik.com/premium-photo/happy-businessman_107420-77330.jpg?size=626&ext=jpg&ga=GA1.1.1629651619.1683994096&semt=ais';
+const ServiceCard = (props: Service) => {
   return (
     <>
       <div className="relative w-full h-full min-h-[48rem] overflow-hidden rounded flex flex-col justify-end group">
         <Image
-          src={imgAdd}
+          src={props.image}
           fill
           alt="service"
           className="object-right object-cover absolute inset-0 z-[0] cursor-pointer peer"
@@ -22,14 +21,11 @@ const ServiceCard = () => {
         <div className="relative w-full min-h-[35%] flex flex-col justify-center p-8 bg-white z-[2] rounded">
           {/* Title */}
           <div className="text-4xl font-bold text-dark leading-sm text-start">
-            Service Title
+            {props.title}
           </div>
 
           {/* Description */}
-          <div className="text-xl text-dark mt-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, voluptate, quibusdam, quia voluptas quod quos
-          </div>
+          <div className="text-xl text-dark mt-4">{props.shortDescription}</div>
 
           {/* Button */}
           <Button

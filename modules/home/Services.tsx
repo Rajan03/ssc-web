@@ -1,12 +1,14 @@
 import { Button, SectionHeader, ServiceCard } from '@/components';
 import { SectionLayout } from '@/layouts';
+import { Service } from '@/types';
 import { FaArrowAltCircleRight } from 'react-icons/fa';
 
 type Props = {
   title: string;
   subtitle: string;
+  services?: Service[];
 };
-const Services: React.FC<Props> = ({ title, subtitle }) => {
+const Services: React.FC<Props> = ({ title, subtitle, services }) => {
   return (
     <div className="bg-dark ">
       <SectionLayout
@@ -35,9 +37,9 @@ const Services: React.FC<Props> = ({ title, subtitle }) => {
 
         {/* Services */}
         <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mt-16">
-          <ServiceCard />
-          <ServiceCard />
-          <ServiceCard />
+          {services?.map((service) => (
+            <ServiceCard key={service._id} {...service} />
+          ))}
         </div>
       </SectionLayout>
     </div>

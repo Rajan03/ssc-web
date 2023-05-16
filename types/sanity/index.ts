@@ -1,3 +1,5 @@
+import { Service } from '../Service';
+
 //#region > HOME PAGE TYPES
 export interface SanityHeroHome {
   name: string;
@@ -17,6 +19,7 @@ export interface SanityAboutHome {
 export interface SanityServicesHome {
   title: string;
   subtitle: string;
+  services: Service[];
 }
 
 export interface SanityWhyUsHome {

@@ -8,6 +8,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const { method } = req;
+  console.log(method);
 
   switch (method) {
     case 'GET':
@@ -15,6 +16,9 @@ export default async function handler(
       break;
     case 'POST':
       await POST(req, res);
+      break;
+    case 'PUT':
+      await PUT(req, res);
       break;
     default:
       res.setHeader('Allow', ['GET']);
@@ -70,6 +74,46 @@ const POST = async (req: NextApiRequest, res: NextApiResponse) => {
 
     // Database Data
     const data = await Service.create(req.body);
+
+    // Return Data
+    res.status(200).json({
+      status: 'success',
+      message: 'Service Created',
+      data,
+    });
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+/**
+ * PUT method
+ * @param req
+ * @param res
+ * @description Updates an existing Service in database via Service model
+ * @returns
+ * @todo Add validation
+ * @todo Add authentication
+ * @todo Add authorization
+ * @todo Add error handling
+ */
+const PUT = async (req: NextApiRequest, res: NextApiResponse) => {
+  try {
+    if (req.body?.allowAccess !== process.env.NEXY_PUBLIC_ALLOW_ACCESS) {
+      return res.status(401).json({ message: 'Unauthorized' });
+    }
+
+    if (!req.body?._id) {
+      return res.status(400).json({ message: '_id is required' });
+    }
+
+    // Database Connection
+    await connectDB();
+
+    // Database Data
+    const data = await Service.findByIdAndUpdate(req.body._id, req.body, {
+      new: true,
+    });
 
     // Return Data
     res.status(200).json({
