@@ -1,8 +1,7 @@
-import { get } from '@/lib/apiHelper';
 import { About, Hero, Services } from '@/modules/home';
+import { GetServicesForHome } from '@/services/HomePageService';
 import { getHomeData } from '@/services/sanityService';
-import { IHomePage } from '@/types';
-import APIUrls from '@/utils/apiUrl';
+import { IHomePage, Service } from '@/types';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
@@ -38,7 +37,12 @@ export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const res: IHomePage = await getHomeData();
-  const services = await get(APIUrls.SERVICES);
+  const services: {
+    message: string;
+    code: number;
+    data: Service[];
+  } = await GetServicesForHome();
+
   return {
     props: {
       data: {
