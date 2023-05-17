@@ -1,5 +1,4 @@
 import { Button, SectionHeader } from '@/components';
-import { SectionLayout } from '@/layouts';
 import { SanityHeroHome } from '@/types';
 import Image from 'next/image';
 
@@ -8,15 +7,15 @@ const Hero: React.FC<SanityHeroHome> = (props) => {
 
   return (
     <>
-      <SectionLayout className="relative overflow-hidden h-[inherit]">
+      <div className="relative overflow-hidden h-[inherit]">
         <div
-          className="md:w-[60%] bg-primary-600 left-6 absolute w-full h-full 
+          className="lg:w-[60%] md:w-[80%] bg-primary-600 left-6 absolute w-full h-full 
         md:rounded-br-[70%]"
         />
 
         {/* HERO Text Section */}
         <div
-          className="md:w-[60%] absolute left-0 w-full h-full bg-dark md:hero-clip-dark md:rounded-br-[70%]
+          className="lg:w-[60%] md:w-[80%] lg:max-w-[60%] absolute left-0 w-full h-full bg-dark md:hero-clip-dark md:rounded-br-[70%]
          flex flex-col items-center 
         md:items-start justify-center px-4 sm:px-16 md:max-w-[80%]"
         >
@@ -54,7 +53,7 @@ const Hero: React.FC<SanityHeroHome> = (props) => {
             'hidden md:block rounded select-none object-cover object-center absolute inset-0 z-[-1] animate-fase-in'
           }
         />
-      </SectionLayout>
+      </div>
     </>
   );
 };

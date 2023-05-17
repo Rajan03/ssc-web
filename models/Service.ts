@@ -1,4 +1,4 @@
-import { Section, Service } from '@/types';
+import { IService, Section } from '@/types';
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
@@ -17,7 +17,7 @@ const subServiceSchema = new Schema<Section>({
   },
 });
 
-const serviceSchema = new Schema<Service>(
+const serviceSchema = new Schema<IService>(
   {
     title: {
       type: String,

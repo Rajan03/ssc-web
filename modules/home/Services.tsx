@@ -1,21 +1,16 @@
 import { Button, SectionHeader, ServiceCard } from '@/components';
-import { SectionLayout } from '@/layouts';
-import { Service } from '@/types';
+import { IService } from '@/types';
 import { FaArrowAltCircleRight } from 'react-icons/fa';
 
 type Props = {
   title: string;
   subtitle: string;
-  services?: Service[];
+  services?: IService[];
 };
 const Services: React.FC<Props> = ({ title, subtitle, services }) => {
   return (
     <div className="bg-dark ">
-      <SectionLayout
-        withContainer
-        columnFlex
-        className="relative justify-start px-8 items-center sm:items-stretch pb-20 pt-40"
-      >
+      <div className="container mx-auto relative flex flex-col justify-start items-center sm:items-stretch px-8 pb-20 pt-40">
         <SectionHeader showLine title={subtitle} className="mb-8" />
 
         {/* Header and btn */}
@@ -41,7 +36,7 @@ const Services: React.FC<Props> = ({ title, subtitle, services }) => {
             <ServiceCard key={service._id} {...service} />
           ))}
         </div>
-      </SectionLayout>
+      </div>
     </div>
   );
 };

@@ -7,7 +7,8 @@ import {
   SanityServicesHome,
   SanityWhyUsHome,
 } from './sanity';
-import { Section, Service } from './Service';
+import { IService, Section } from './Service';
+import { ISolution } from './Solution';
 
 export type {
   SanityHeroHome,
@@ -18,5 +19,6 @@ export type {
   SanityWhyUsHome,
   IHomePage,
   Section,
-  Service,
+  IService,
+  ISolution,
 };

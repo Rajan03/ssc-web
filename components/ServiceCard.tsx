@@ -1,9 +1,9 @@
-import { Service } from '@/types';
+import { IService } from '@/types';
 import Image from 'next/image';
 import { HiExternalLink } from 'react-icons/hi';
 import Button from './Button';
 
-const ServiceCard = (props: Service) => {
+const ServiceCard = (props: IService) => {
   return (
     <>
       <div className="relative w-full h-full min-h-[48rem] overflow-hidden rounded flex flex-col justify-end group">

@@ -1,4 +1,5 @@
-import { Service } from '../Service';
+import { IService } from '../Service';
+import { ISolution } from '../Solution';
 
 //#region > HOME PAGE TYPES
 export interface SanityHeroHome {
@@ -19,22 +20,23 @@ export interface SanityAboutHome {
 export interface SanityServicesHome {
   title: string;
   subtitle: string;
-  services: Service[];
+  services: IService[];
 }
 
 export interface SanityWhyUsHome {
-  name: string;
+  title: string;
   subtitle: string;
   image: string;
+  solutions: ISolution[];
 }
 
 export interface SanityPricingHome {
-  name: string;
+  title: string;
   subtitle: string;
 }
 
 export interface SanityQuoteHome {
-  name: string;
+  title: string;
   subtitle: string;
   description: string;
   image: string;

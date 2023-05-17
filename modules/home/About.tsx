@@ -1,5 +1,4 @@
 import { Button, SectionHeader } from '@/components';
-import { SectionLayout } from '@/layouts';
 import { SanityAboutHome } from '@/types';
 import Image from 'next/image';
 import React from 'react';
@@ -14,11 +13,7 @@ const About: React.FC<SanityAboutHome> = ({
   //TODO: Add images in sanity and add them here
   return (
     <>
-      <SectionLayout
-        withContainer
-        columnFlex
-        className="gap-y-16 gap-x-8 lg:flex-row sm:py-12"
-      >
+      <div className="container mx-auto gap-y-16 gap-x-8 flex flex-col lg:flex-row pb-8 sm:py-12">
         {/* Image Section */}
         <div className="relative w-full h-full flex-[65%] flex justify-start gap-x-12 sm:py-20">
           <div className="w-full h-full sm:w-1/2">
@@ -71,7 +66,7 @@ const About: React.FC<SanityAboutHome> = ({
             onClick={() => console.log('Hello Hero Btn')}
           />
         </div>
-      </SectionLayout>
+      </div>
     </>
   );
 };
