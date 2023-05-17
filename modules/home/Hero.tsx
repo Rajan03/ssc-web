@@ -42,7 +42,7 @@ const Hero: React.FC<SanityHeroHome> = (props) => {
           className="relative flex-[45%] h-3/4 flex items-center justify-center gap-y-6 "
           onDragStart={changeImage}
         >
-          {images.map((image, index) => (
+          {images?.map((image, index) => (
             <Image
               key={index}
               src={image}
@@ -57,7 +57,7 @@ const Hero: React.FC<SanityHeroHome> = (props) => {
 
           {/* Dots */}
           <div className="flex flex-col justify-start items-center gap-y-8 absolute bottom-0 -left-16">
-            {images.map((_, i) => (
+            {images?.map((_, i) => (
               <span
                 key={i}
                 onClick={() => setActiveImage(i)}
