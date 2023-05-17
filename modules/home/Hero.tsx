@@ -17,11 +17,11 @@ const Hero: React.FC<SanityHeroHome> = (props) => {
 
   return (
     <>
-      <section className="container mx-auto h-full flex flex-col sm:flex-row items-center justify-center">
+      <section className="container flex flex-col items-center justify-center h-full mx-auto sm:flex-row">
         {/* HERO Text Section */}
         <div className="flex flex-col justify-start px-8 items-center sm:items-start flex-[55%]">
           <SectionHeader title={subtitle} className="mb-4" />
-          <div className="text-6xl font-bold text-dark leading-sm text-center sm:text-start">
+          <div className="text-6xl font-bold text-center text-dark leading-sm sm:text-start">
             {name}
           </div>
           {description && (
@@ -56,7 +56,7 @@ const Hero: React.FC<SanityHeroHome> = (props) => {
           ))}
 
           {/* Dots */}
-          <div className="flex flex-col justify-start items-center gap-y-8 absolute bottom-0 -left-16">
+          <div className="absolute bottom-0 flex flex-col items-center justify-start gap-y-8 -left-16">
             {images?.map((_, i) => (
               <span
                 key={i}
