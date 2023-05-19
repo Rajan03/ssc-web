@@ -1,4 +1,8 @@
-import { About, Hero } from '@/modules/home';
+import { About, Hero, Quote, Services, WhyUs } from '@/modules/home';
+import {
+  GetServicesForHome,
+  GetSolutionsForHome,
+} from '@/services/HomePageService';
 import { getHomeData } from '@/services/sanityService';
 import { IHomePage } from '@/types';
 import { GetStaticProps } from 'next';
@@ -11,7 +15,7 @@ type Props = {
 
 // Component
 const Home: React.FC<Props> = ({ data }) => {
-  const { hero, about } = data;
+  const { hero, about, services, whyUs, quote } = data;
 
   return (
     <>
@@ -19,12 +23,21 @@ const Home: React.FC<Props> = ({ data }) => {
         <title>SSC | Home</title>
       </Head>
 
-      <main className={`relative h-full p-for-nav`}>
+      <main className={`relative h-[inherit] p-for-nav`}>
         {/* Hero */}
         <Hero {...hero} />
 
         {/* About */}
         <About {...about} />
+
+        {/* Services */}
+        <Services {...services} />
+
+        {/* Why Us */}
+        <WhyUs {...whyUs} />
+
+        {/* Why Us */}
+        <Quote {...quote} />
       </main>
     </>
   );
@@ -33,9 +46,22 @@ export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const res: IHomePage = await getHomeData();
+  const services = await GetServicesForHome();
+  const solutions = await GetSolutionsForHome();
+
   return {
     props: {
-      data: { ...res },
+      data: {
+        ...res,
+        services: {
+          ...res.services,
+          services: JSON.parse(JSON.stringify(services.data)),
+        },
+        whyUs: {
+          ...res.whyUs,
+          solutions: JSON.parse(JSON.stringify(solutions.data)),
+        },
+      },
     },
     revalidate: 20,
   };

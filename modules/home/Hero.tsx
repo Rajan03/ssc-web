@@ -1,78 +1,58 @@
 import { Button, SectionHeader } from '@/components';
 import { SanityHeroHome } from '@/types';
-import clsx from 'clsx';
 import Image from 'next/image';
-import { DragEvent, DragEventHandler, useState } from 'react';
 
 const Hero: React.FC<SanityHeroHome> = (props) => {
-  const { name, subtitle, description, images } = props;
-  const [activeImage, setActiveImage] = useState(0);
-
-  const changeImage: DragEventHandler<HTMLImageElement> = (
-    e: DragEvent<HTMLImageElement>
-  ) => {
-    e.preventDefault();
-    setActiveImage((activeImage + 1) % images.length);
-  };
+  const { name, subtitle, description, image } = props;
 
   return (
     <>
-      <section className="container flex flex-col items-center justify-center h-full mx-auto sm:flex-row">
+      <section className="relative overflow-hidden h-[inherit]">
+        <div
+          className="lg:w-[60%] md:w-[80%] bg-primary-600 left-6 absolute w-full h-full 
+        md:rounded-br-[70%]"
+        />
+
         {/* HERO Text Section */}
-        <div className="flex flex-col justify-start px-8 items-center sm:items-start flex-[55%]">
-          <SectionHeader title={subtitle} className="mb-4" />
-          <div className="text-6xl font-bold text-center text-dark leading-sm sm:text-start">
+        <div
+          className="lg:w-[60%] md:w-[80%] lg:max-w-[60%] absolute left-0 w-full h-full bg-dark md:hero-clip-dark md:rounded-br-[70%]
+         flex flex-col items-center 
+        md:items-start justify-center px-4 sm:px-16 md:max-w-[80%]"
+        >
+          {/* SUBTITLE */}
+          <SectionHeader title={subtitle} className="mb-8" />
+
+          {/* TITLE */}
+          <h1 className="text-6xl md:text-8xl font-bold text-white leading-sm text-center md:text-start">
             {name}
-          </div>
+          </h1>
+
+          {/* DESCRIPTION */}
           {description && (
-            <p className="text-xl text-dark mt-8 max-w-[80%] text-center sm:text-start">
+            <p className="w-[80%] text-2xl text-white mt-8 text-center md:text-start">
               {description}
             </p>
           )}
+
+          {/* BUTTON */}
           <Button
             text="Get Started"
             size="large"
-            className="mt-8"
+            className="mt-20"
             onClick={() => console.log('Hello Hero Btn')}
           />
         </div>
 
         {/* HERO Images Section */}
-        <div
-          className="relative flex-[45%] h-3/4 flex items-center justify-center gap-y-6 "
-          onDragStart={changeImage}
-        >
-          {images?.map((image, index) => (
-            <Image
-              key={index}
-              src={image}
-              alt={'image'}
-              fill
-              className={clsx(
-                'rounded select-none object-cover object-center w-full h-full transition-transform duration-200',
-                index === activeImage ? 'scale-100' : 'scale-90'
-              )}
-            />
-          ))}
-
-          {/* Dots */}
-          <div className="absolute bottom-0 flex flex-col items-center justify-start gap-y-8 -left-16">
-            {images?.map((_, i) => (
-              <span
-                key={i}
-                onClick={() => setActiveImage(i)}
-                className={clsx(
-                  'h-6 w-6 rounded-full ',
-                  i === activeImage ? 'bg-primary ' : 'border-4 border-primary',
-                  'transition-all duration-200 cursor-pointer',
-                  i === activeImage ? 'scale-125' : 'scale-100',
-                  i === activeImage &&
-                    'before:h-full before:w-full before:absolute before:rounded-full before:border-2 before:border-primary before:opacity-50 before:scale-150 before:transform before:-translate-x-1 before:-translate-y-1'
-                )}
-              />
-            ))}
-          </div>
-        </div>
+        <Image
+          src={image}
+          alt={'image'}
+          fill
+          priority
+          className={
+            'hidden md:block rounded select-none object-cover object-center absolute inset-0 z-[-1] animate-fase-in'
+          }
+        />
       </section>
     </>
   );

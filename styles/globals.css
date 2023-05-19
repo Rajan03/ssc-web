@@ -72,3 +72,56 @@ body,
 .top-nav {
     @apply bg-neutral-50;
 }
+
+.hero-clip {
+    content: "";
+    clip-path: polygon(84% 0, 100% 50%, 84% 100%, 0 100%, 0 52%, 0 0);
+}
+
+.hero-clip-dark {
+    content: "";
+    clip-path: polygon(84% 0, 100% 50%, 84% 100%, 0 100%, 0 52%, 0 0);
+
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes faseOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes linearMotion {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: 100%;
+    }
+}

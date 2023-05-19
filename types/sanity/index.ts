@@ -1,9 +1,12 @@
+import { IService } from '../Service';
+import { ISolution } from '../Solution';
+
 //#region > HOME PAGE TYPES
 export interface SanityHeroHome {
   name: string;
   subtitle: string;
   description: string;
-  images: string[];
+  image: string;
 }
 
 export interface SanityAboutHome {
@@ -11,31 +14,38 @@ export interface SanityAboutHome {
   subtitle: string;
   description: string;
   count: number;
+  images: string[];
 }
 
 export interface SanityServicesHome {
-  name: string;
+  title: string;
   subtitle: string;
+  services: IService[];
 }
 
 export interface SanityWhyUsHome {
-  name: string;
+  title: string;
   subtitle: string;
   image: string;
+  solutions: ISolution[];
 }
 
 export interface SanityPricingHome {
-  name: string;
+  title: string;
   subtitle: string;
 }
 
 export interface SanityQuoteHome {
-  name: string;
+  title: string;
+  subtitle: string;
+}
+
+export interface SanityContactHome {
+  title: string;
   subtitle: string;
   description: string;
   image: string;
 }
-
 export interface IHomePage {
   hero: SanityHeroHome;
   about: SanityAboutHome;
@@ -43,5 +53,6 @@ export interface IHomePage {
   whyUs: SanityWhyUsHome;
   pricing: SanityPricingHome;
   quote: SanityQuoteHome;
+  contact: SanityContactHome;
 }
 //#endregion
