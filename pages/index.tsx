@@ -1,4 +1,4 @@
-import { About, Hero, Services, WhyUs } from '@/modules/home';
+import { About, Hero, Quote, Services, WhyUs } from '@/modules/home';
 import {
   GetServicesForHome,
   GetSolutionsForHome,
@@ -15,7 +15,7 @@ type Props = {
 
 // Component
 const Home: React.FC<Props> = ({ data }) => {
-  const { hero, about, services, whyUs } = data;
+  const { hero, about, services, whyUs, quote } = data;
 
   return (
     <>
@@ -35,6 +35,9 @@ const Home: React.FC<Props> = ({ data }) => {
 
         {/* Why Us */}
         <WhyUs {...whyUs} />
+
+        {/* Why Us */}
+        <Quote {...quote} />
       </main>
     </>
   );

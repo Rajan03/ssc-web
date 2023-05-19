@@ -44,6 +44,7 @@ module.exports = {
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out forwards',
         'fade-out': 'fadeOut 0.5s ease-in-out forwards',
+        linear: 'linearMotion 8s ease-out infinite',
       },
       screens: {
         vsm: '400px',

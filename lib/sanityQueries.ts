@@ -44,6 +44,13 @@ export const GET_HOME_PRICING = groq`
 export const GET_HOME_QUOTE = groq`
 *[_type=="quoteHome" && active == true][0] {
   "title":name, 
+  subtitle
+}
+`;
+
+export const GET_HOME_CONTACT = groq`
+*[_type=="contactHome" && active == true][0] {
+  "title":name, 
   subtitle,
   "description": description[][0].children[][0].text,
   "image": image.asset->url

@@ -3,7 +3,7 @@ import { IconType } from 'react-icons';
 
 type ButtonProps = {
   text?: string;
-  onClick: () => void;
+  onClick: (_e?: any) => void;
 
   type?: 'button' | 'submit' | 'reset'; // default button
   theme?: 'primary' | 'secondary' | 'neutral'; // default primary

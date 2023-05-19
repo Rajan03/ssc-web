@@ -38,10 +38,14 @@ export interface SanityPricingHome {
 export interface SanityQuoteHome {
   title: string;
   subtitle: string;
+}
+
+export interface SanityContactHome {
+  title: string;
+  subtitle: string;
   description: string;
   image: string;
 }
-
 export interface IHomePage {
   hero: SanityHeroHome;
   about: SanityAboutHome;
@@ -49,5 +53,6 @@ export interface IHomePage {
   whyUs: SanityWhyUsHome;
   pricing: SanityPricingHome;
   quote: SanityQuoteHome;
+  contact: SanityContactHome;
 }
 //#endregion
