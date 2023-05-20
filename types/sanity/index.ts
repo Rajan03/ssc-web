@@ -1,5 +1,6 @@
 import { IService } from '../Service';
 import { ISolution } from '../Solution';
+import { ITeam } from '../Team';
 
 //#region > HOME PAGE TYPES
 export interface SanityHeroHome {
@@ -23,6 +24,11 @@ export interface SanityServicesHome {
   services: IService[];
 }
 
+export interface SanityTeamsHome {
+  title: string;
+  subtitle: string;
+  coaches: ITeam[];
+}
 export interface SanityWhyUsHome {
   title: string;
   subtitle: string;
@@ -54,5 +60,6 @@ export interface IHomePage {
   pricing: SanityPricingHome;
   quote: SanityQuoteHome;
   contact: SanityContactHome;
+  coaches: SanityTeamsHome;
 }
 //#endregion

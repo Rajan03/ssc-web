@@ -56,3 +56,10 @@ export const GET_HOME_CONTACT = groq`
   "image": image.asset->url
 }
 `;
+
+export const GET_HOME_TEAMS = groq`
+*[_type=="teamsHome" && active == true][0] {
+  "title":name,
+  subtitle,
+}
+`;

@@ -5,6 +5,7 @@ import {
   GET_HOME_PRICING,
   GET_HOME_QUOTE,
   GET_HOME_SERVICES,
+  GET_HOME_TEAMS,
   GET_HOME_WHY_US,
 } from '@/lib/sanityQueries';
 import { sanityGet } from '@/sanity';
@@ -16,7 +17,7 @@ import {
   SanityServicesHome,
   SanityWhyUsHome,
 } from '@/types';
-import { SanityContactHome } from '@/types/sanity';
+import { SanityContactHome, SanityTeamsHome } from '@/types/sanity';
 
 export const getHomeData = async () => {
   const hero: SanityHeroHome = await sanityGet(GET_HOME_HERO);
@@ -26,6 +27,7 @@ export const getHomeData = async () => {
   const pricing: SanityPricingHome = await sanityGet(GET_HOME_PRICING);
   const quote: SanityQuoteHome = await sanityGet(GET_HOME_QUOTE);
   const contact: SanityContactHome = await sanityGet(GET_HOME_CONTACT);
+  const coaches: SanityTeamsHome = await sanityGet(GET_HOME_TEAMS);
 
   return {
     hero,
@@ -35,5 +37,6 @@ export const getHomeData = async () => {
     pricing,
     quote,
     contact,
+    coaches,
   };
 };
