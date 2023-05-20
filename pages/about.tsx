@@ -1,126 +1,97 @@
-import HoverButton from "@/components/AboutButton";
+import AboutButton from "@/components/AboutButton";
 import Card from "@/components/card";
 import useCounter from "@/components/counter";
 import Grid from "@/components/grid";
-
+import TextMenu from "@/components/textmenu";
+import Image from "next/image";
 
 const About = () => {
-  const count = useCounter(180); 
+  const count = useCounter(180);
 
   return (
     <div>
-    
-      <div className="relative -full md:top-[250px] h-10 md:h-20 lg:h-60 xl:h-40">
+      {/* first section */}
+      <div className="relative h-full p-for-nav">
         <Card />
       </div>
-      <div className=" md:ml-[15%] flex flex-col md:flex-row">
-        <div className="w-full md:w-1/2">
-          <div className="relative h-auto md:h-[600px]  md:mt-[80%]">
-            <Grid />
-          </div>
-        </div>
-        <div className="w-full ml-10 md:w-1/2">
-          <div className="relative md:w-[600px] md:mr-5  md:mt-[95%]">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-10 h-10"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="black"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h7"
+      <div className="relative flex items-center justify-center min-h-screen">
+        <div className="container">
+          <div className="flex flex-col gap-4 md:flex-row">
+            <div className="w-full md:w-1/2">
+              <Grid />
+            </div>
+            <div className="w-full md:w-1/2">
+              <TextMenu
+                svgPath="M4 6h16M4 12h16M4 18h7"
+                title="ABOUT OUR COMPANY"
+                subtitle="Find Out More About Our Business Consulting"
+                description="Fusce Quis Lacus Laoreet, Dignissim Quam Eu, Scelerisque Tortor. Cras Volutpat Aliquet Efficitur. Quisque Dignissim Justo Ac Erat Tincidunt Tristique. Curabitur Id Tortor Ipsum. Suspendisse Suscipit Commodo Turpis Eu Interdum"
               />
-            </svg>
-            <h1 className="relative mx-4 text-4xl font-bold text-red-500 md:mx-20 mb-7">
-              ABOUT OUR COMPANY
-            </h1>
-            <h2 className="relative mx-4 text-4xl font-medium text-black md:mx-20 mb-7">
-              Find Out More About Our Business Consulting
-            </h2>
-            <p className="relative mx-4 mb-20 ml-4 text-2xl font-medium text-justify text-black md:mx-20 md:ml-20">
-              Fusce Quis Lacus Laoreet, Dignissim Quam Eu, Scelerisque Tortor. Cras
-              Volutpat Aliquet Efficitur. Quisque Dignissim Justo Ac Erat Tincidunt
-              Tristique. Curabitur Id Tortor Ipsum. Suspendisse Suscipit Commodo Turpis
-              Eu Interdum
-            </p>
-            <HoverButton text="Read More" />
+              <AboutButton text="Read More" />
+            </div>
           </div>
-     
         </div>
-
-
-
       </div>
-      <div className="md:m-[18%] md:mt-[10%] flex flex-col md:flex-row">
-  <div className="w-full ml-10 md:w-1/2">
-    <div className="relative md:w-[600px] md:mt-[20%]">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-10 h-10"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="black"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M4 6h16M4 12h16M4 18h7"
-        />
-      </svg>
-      <h1 className="relative mx-4 text-4xl font-bold text-red-500 md:mx-20 mb-7">
-      WHO WE ARE
-      </h1>
-      <h2 className="relative mx-4 text-4xl font-bold text-black md:mx-20 mb-7">
-      Best Company Especially In Business
-      </h2>
-      <p className="relative mx-4 mb-20 ml-4 text-2xl font-medium text-justify text-black md:mx-20 md:ml-20">
-      Aenean Ac Vulputate Nibh, Sed Fringilla Metus. Pellentesque Porttitor Felis Eu Nunc Feugiat, Nec Condimentum Magna Ultricies. Nam Vitae Est Accumsan Nunc
-      </p>
-      <div className="mb-20 ml-20">
-      <h3 className="mb-2 text-4xl font-bold text-black">{count}k
-      <span className='ml-10 text-xl font-medium'>Project Completed Last Year</span>
-      <span className="mb-2 ml-20 text-4xl font-bold text-black">{count}k</span>
-      <span className='ml-10 text-xl font-medium'>Happy Customer Worlwide</span>
+      {/* second section */}
+      <div className="relative flex mb-[10%] items-center justify-center gap-4 t-[30%]">
+        <div className="container">
+          <div className="flex flex-col gap-4 md:flex-row">
+            <div className="w-full ml-5 mr-5 md:w-1/2">
+              <TextMenu
+                svgPath="M4 6h16M4 12h16M4 18h7"
+                title="WHO WE ARE"
+                subtitle="Best Company Especially In Business"
+                description="Aenean Ac Vulputate Nibh, Sed Fringilla Metus. Pellentesque Porttitor Felis Eu Nunc Feugiat, Nec Condimentum Magna Ultricies. Nam Vitae Est Accumsan Nunc"
+              />
+              <div className="mb-10 ml-[10%]">
+                <h3 className="mb-2 text-4xl font-bold text-black">
+                  {count}k
+                  <span className="ml-10 text-xl font-medium">
+                    Project Completed Last Year
+                  </span>
+                  <span className="mb-2 ml-20 text-4xl font-bold text-black">
+                    {count}k
+                  </span>
+                  <span className="ml-10 text-xl font-medium">
+                    Happy Customer Worldwide
+                  </span>
+                </h3>
+              </div>
+              <AboutButton text="Discover More" />
+            </div>
+            <div className="ml-5 w-full md:w-1/2 md:h-[450px]">
+              <Image
+                className="object-cover w-[500px] h-full"
+                height={500}
+                loading="lazy"
+                width={500}
 
-      </h3>
-      </div>
-      
-      <HoverButton text="Discover More" />
-      
+                src="https://img.freepik.com/free-photo/diverse-businesspeople-discussing-management-paperwork-standing-conference-table_482257-14061.jpg?w=1060&t=st=1683825222~exp=1683825822~hmac=a43"
+
+            alt="Image 2"
+          />
+          </div>
+          </div>
+          </div>
     </div>
-  </div>
-  <div className="w-full md:w-1/2  md:mt-[10%] md:h-[300px]">
-    <div className="relative h-auto  md:h-[500px]">
-      <img
-        src="https://img.freepik.com/free-photo/hallway-hotel_23-2149397540.jpg?size=626&ext=jpg&ga=GA1.2.745640877.1667035334&semt=ais"
-        alt="Image 1"
-        className="object-cover w-full md:h-full"
+    <div className="relative md:h-[300px] ">
+      <Image  className="object-cover w-full h-full filter grayscale"
+       height={500}
+       loading="lazy"
+       width={500}
+
+        src="https://img.freepik.com/free-photo/abstract-business-people-city-buildings_53876-139657.jpg?size=626&ext=jpg&ga=GA1.1.745640877.1667035334&semt=ais"
+        alt="Image 3"
       />
-    </div>
-  </div>
-</div>
-<div>
-<div className="relative md:h-[300px] mt-5">
-      <img
-        src="https://img.freepik.com/free-photo/wide-shot-two-females-standing-huge-glass-window-looking-view-high-rise-buildings_181624-3422.jpg?w=996&t=st=1684254902~exp=1684255502~hmac=92f5c78fe54ea705940d2ec37e788761d119dfce6c5db6f389fbc0523078ae4d"
-        alt="Image 1"
-        className="object-cover w-full h-full filter grayscale"></img>
       
       <h1 className="absolute text-[60px] text-white font-bold md:top-1/2 md:left-[250px]  -translate-y-1/2">
       Implement Solutions & Achieve Goals.
       </h1>
-      <div className="absolute  font-bold md:top-1/2 md:right-[200px]  -translate-y-1/2"><HoverButton text="Discover More" /></div>
+      <div className="absolute  font-bold md:top-1/2 md:right-[200px]  -translate-y-1/2"><AboutButton text="Discover More" /></div>
       
     </div>
-</div>
-          </div>
 
-        
+    </div>
   );
 };
 
