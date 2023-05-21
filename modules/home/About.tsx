@@ -49,7 +49,7 @@ const About: React.FC<SanityAboutHome> = ({
         </div>
 
         {/* Text Section */}
-        <div className=" flex-[45%] flex flex-col justify-start px-8 items-start lg:justify-center">
+        <div className="flex-[45%] flex flex-col justify-start sm:px-8 items-start lg:justify-center">
           <SectionHeader showLine title={subtitle} className="mb-8" />
           <div className="text-6xl font-bold text-dark leading-sm text-start">
             {title}

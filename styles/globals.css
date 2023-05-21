@@ -84,6 +84,18 @@ body,
 
 }
 
+.web-input {
+    @apply bg-neutral-100 rounded p-6 outline-none transition-all duration-300
+}
+
+.web-input:hover {
+    @apply bg-neutral-200
+}
+
+.web-input:focus {
+    @apply ring-offset-2 ring-offset-neutral-100 outline-none ring-primary-400 ring-2
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

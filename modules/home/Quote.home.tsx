@@ -28,7 +28,7 @@ const Quote: React.FC<SanityQuoteHome> = ({ title, subtitle }) => {
           <input
             type="text"
             placeholder="Name"
-            className="bg-white rounded p-6 outline-none w-full md:w-[50rem]"
+            className="w-full md:w-[50rem] web-input hover:ring-2 ring-white hover:bg-white"
           />
           <Button
             type="submit"

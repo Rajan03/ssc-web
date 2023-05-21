@@ -1,4 +1,12 @@
-import { About, Hero, Quote, Services, Teams, WhyUs } from '@/modules/home';
+import {
+  About,
+  Contact,
+  Hero,
+  Quote,
+  Services,
+  Teams,
+  WhyUs,
+} from '@/modules/home';
 import {
   GetCoachesForHome,
   GetServicesForHome,
@@ -16,7 +24,7 @@ type Props = {
 
 // Component
 const Home: React.FC<Props> = ({ data }) => {
-  const { hero, about, services, whyUs, quote, coaches } = data;
+  const { hero, about, services, whyUs, quote, coaches, contact } = data;
 
   return (
     <>
@@ -42,6 +50,9 @@ const Home: React.FC<Props> = ({ data }) => {
 
         {/* Teams */}
         <Teams {...coaches} />
+
+        {/* Contact */}
+        <Contact {...contact} />
       </main>
     </>
   );
