@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useCounter = (lastNumber) => {
+const useCounter = (lastNumber:number) => {
   const [count, setCount] = useState(50); // Start the counter at 50
 
   useEffect(() => {
