@@ -42,7 +42,7 @@ const Button: React.FC<ButtonProps> = (props) => {
       'bg-primary-600 text-white': !onlyText && !outline && theme === 'primary',
     },
     {
-      'bg-secondary text-neutral-600':
+      'bg-white text-neutral-600':
         !onlyText && !outline && theme === 'secondary',
     },
     {

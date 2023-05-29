@@ -1,3 +1,6 @@
+import { IPlanFeature, IPlanOffer, IPricing } from './Pricing';
+import { IService, Section } from './Service';
+import { ISolution } from './Solution';
 import {
   IHomePage,
   SanityAboutHome,
@@ -7,8 +10,6 @@ import {
   SanityServicesHome,
   SanityWhyUsHome,
 } from './sanity';
-import { IService, Section } from './Service';
-import { ISolution } from './Solution';
 
 export type {
   SanityHeroHome,
@@ -21,4 +22,7 @@ export type {
   Section,
   IService,
   ISolution,
+  IPricing,
+  IPlanFeature,
+  IPlanOffer,
 };

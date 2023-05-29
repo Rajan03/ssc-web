@@ -48,16 +48,21 @@ html {
     font-size: 62.5%;
 
     @apply antialiased;
-
-    @media screen(sm) {
-        font-size: 50%;
-    }
-
-    @media screen(md) {
+}
+@media screen(sm) {
+    html {
         font-size: 56.25%;
     }
+}
 
-    @media screen(lg) {
+@media screen(md) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media screen(lg) {
+    html {
         font-size: 62.5%;
     }
 }
@@ -82,6 +87,18 @@ body,
     content: "";
     clip-path: polygon(84% 0, 100% 50%, 84% 100%, 0 100%, 0 52%, 0 0);
 
+}
+
+.web-input {
+    @apply bg-neutral-100 rounded p-6 outline-none transition-all duration-300
+}
+
+.web-input:hover {
+    @apply bg-neutral-200
+}
+
+.web-input:focus {
+    @apply ring-offset-2 ring-offset-neutral-100 outline-none ring-primary-400 ring-2
 }
 
 @keyframes fadeIn {

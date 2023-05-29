@@ -1,5 +1,14 @@
-import { About, Hero, Quote, Services, WhyUs } from '@/modules/home';
 import {
+  About,
+  Contact,
+  Hero,
+  Quote,
+  Services,
+  Teams,
+  WhyUs,
+} from '@/modules/home';
+import {
+  GetCoachesForHome,
   GetServicesForHome,
   GetSolutionsForHome,
 } from '@/services/HomePageService';
@@ -7,6 +16,7 @@ import { getHomeData } from '@/services/sanityService';
 import { IHomePage } from '@/types';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import React from "react";
 
 // Component Props
 type Props = {
@@ -15,7 +25,7 @@ type Props = {
 
 // Component
 const Home: React.FC<Props> = ({ data }) => {
-  const { hero, about, services, whyUs, quote } = data;
+  const { hero, about, services, whyUs, quote, coaches, contact } = data;
 
   return (
     <>
@@ -36,8 +46,14 @@ const Home: React.FC<Props> = ({ data }) => {
         {/* Why Us */}
         <WhyUs {...whyUs} />
 
-        {/* Why Us */}
+        {/* Quote */}
         <Quote {...quote} />
+
+        {/* Teams */}
+        <Teams {...coaches} />
+
+        {/* Contact */}
+        <Contact {...contact} />
       </main>
     </>
   );
@@ -45,9 +61,10 @@ const Home: React.FC<Props> = ({ data }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const res: IHomePage = await getHomeData();
+  const res = await getHomeData();
   const services = await GetServicesForHome();
   const solutions = await GetSolutionsForHome();
+  const coaches = await GetCoachesForHome();
 
   return {
     props: {
@@ -60,6 +77,10 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         whyUs: {
           ...res.whyUs,
           solutions: JSON.parse(JSON.stringify(solutions.data)),
+        },
+        coaches: {
+          ...res.coaches,
+          coaches: JSON.parse(JSON.stringify(coaches.data)),
         },
       },
     },

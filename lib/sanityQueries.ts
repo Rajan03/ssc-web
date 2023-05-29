@@ -34,12 +34,6 @@ export const GET_HOME_WHY_US = groq`
 }
 `;
 
-export const GET_HOME_PRICING = groq`
-*[_type=="pricingHome" && active == true][0] {
-  "title":name, 
-  subtitle
-}
-`;
 
 export const GET_HOME_QUOTE = groq`
 *[_type=="quoteHome" && active == true][0] {
@@ -54,5 +48,12 @@ export const GET_HOME_CONTACT = groq`
   subtitle,
   "description": description[][0].children[][0].text,
   "image": image.asset->url
+}
+`;
+
+export const GET_HOME_TEAMS = groq`
+*[_type=="teamsHome" && active == true][0] {
+  "title":name,
+  subtitle,
 }
 `;
