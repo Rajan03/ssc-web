@@ -35,7 +35,8 @@ const GET = async (req: NextApiRequest, res: NextApiResponse) => {
     // Return Data
     res.status(200).json({
       status: 'success',
-      message: 'Hello from API',
+      message: 'Pricing Plans Fetched Successfully',
+      data: plans
     });
   } catch (error: any) {
     res.status(500).json({ message: error.message });
