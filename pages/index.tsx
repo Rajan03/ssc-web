@@ -16,6 +16,7 @@ import { getHomeData } from '@/services/sanityService';
 import { IHomePage } from '@/types';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import React from "react";
 
 // Component Props
 type Props = {
@@ -60,7 +61,7 @@ const Home: React.FC<Props> = ({ data }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const res: IHomePage = await getHomeData();
+  const res = await getHomeData();
   const services = await GetServicesForHome();
   const solutions = await GetSolutionsForHome();
   const coaches = await GetCoachesForHome();

@@ -48,16 +48,21 @@ html {
     font-size: 62.5%;
 
     @apply antialiased;
-
-    @media screen(sm) {
-        font-size: 50%;
-    }
-
-    @media screen(md) {
+}
+@media screen(sm) {
+    html {
         font-size: 56.25%;
     }
+}
 
-    @media screen(lg) {
+@media screen(md) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media screen(lg) {
+    html {
         font-size: 62.5%;
     }
 }

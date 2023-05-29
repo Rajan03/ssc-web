@@ -27,7 +27,7 @@ export default async function handler(
  * GET method
  * @param req
  * @param res
- * @description Get HOME page data from sanity studion via sanityGet helper function
+ * @description Get all Team members
  */
 const GET = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -55,7 +55,7 @@ const GET = async (req: NextApiRequest, res: NextApiResponse) => {
  * POST method
  * @param req
  * @param res
- * @description Get HOME page data from sanity studion via sanityGet helper function
+ * @description Add new Team member
  * @todo Add data validation
  */
 const POST = async (req: NextApiRequest, res: NextApiResponse) => {

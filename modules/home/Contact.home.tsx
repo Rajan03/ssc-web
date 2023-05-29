@@ -15,7 +15,7 @@ const Contact: React.FC<SanityContactHome> = ({
   };
 
   return (
-    <section className="bg-dark/80 relative px-8 py-24 mt-40">
+    <section className="bg-dark/80 relative px-8 py-24 my-40">
       {/* Background Image */}
       <div className="absolute inset-0 overflow-hidden z-[-1]">
         <Image

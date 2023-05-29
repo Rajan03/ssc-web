@@ -34,12 +34,6 @@ export const GET_HOME_WHY_US = groq`
 }
 `;
 
-export const GET_HOME_PRICING = groq`
-*[_type=="pricingHome" && active == true][0] {
-  "title":name, 
-  subtitle
-}
-`;
 
 export const GET_HOME_QUOTE = groq`
 *[_type=="quoteHome" && active == true][0] {
