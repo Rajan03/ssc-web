@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface TextMenuProps {
   svgPath: string;
@@ -7,10 +7,15 @@ interface TextMenuProps {
   description: string;
 }
 
-const TextMenu :React.FC<TextMenuProps>= ({ svgPath, title, subtitle, description}) => {
+const TextMenu: React.FC<TextMenuProps> = ({
+  svgPath,
+  title,
+  subtitle,
+  description,
+}) => {
   return (
-    <div className="relative w-full md:ml-10 ">
-      <div className="relative md:w-[600px] ">
+    <div className="relative w-full">
+      <div className="relative mx-10 mb-7">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-10 h-10"
@@ -25,12 +30,15 @@ const TextMenu :React.FC<TextMenuProps>= ({ svgPath, title, subtitle, descriptio
             d={svgPath}
           />
         </svg>
-        <h1 className="relative mx-4 text-4xl font-bold text-red-500 md:mx-20 mb-7">{title}</h1>
-        <h2 className="relative mx-4 text-4xl font-medium text-black md:mx-20 mb-7">{subtitle}</h2>
-        <p className="relative mx-4 mb-20 ml-4 text-2xl font-medium text-justify text-black md:mx-20 md:ml-20">
+        <h1 className="relative text-4xl font-bold text-red-500 sm:text-5xl mt-10">
+          {title}
+        </h1>
+        <h2 className="relative text-3xl font-medium text-black sm:text-4xl mt-10">
+          {subtitle}
+        </h2>
+        <p className="relative mt-10 text-lg font-medium text-justify text-black ">
           {description}
         </p>
-
       </div>
     </div>
   );
