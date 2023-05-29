@@ -4,7 +4,7 @@ interface HoverButtonProps {
   text: string;
 }
 
-const HoverButton: React.FC<HoverButtonProps> = ({ text }) => {
+const AnimatedBtn: React.FC<HoverButtonProps> = ({ text }) => {
   return (
     <div className="group">
       <button className="md:ml-[10%]  w-[180px] h-[60px] sm:w-[240px] sm:h-[80px]
@@ -22,4 +22,4 @@ const HoverButton: React.FC<HoverButtonProps> = ({ text }) => {
   );
 };
 
-export default HoverButton;
+export default AnimatedBtn;

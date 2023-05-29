@@ -1,8 +1,6 @@
-import AboutButton from "@/components/AboutButton";
-import Card from "@/components/card";
-import useCounter from "@/components/counter";
-import Grid from "@/components/grid";
-import TextMenu from "@/components/textmenu";
+import {AnimatedBtn, Card,Grid, TextMenu} from "@/components";
+// NOTE: Imports from index.tsx in components folder and ABout btn rename krke AnimatedBtn kra hai bca vo puri website me use hoga (not specific to about page)
+import useCounter from "@/hooks/counter";
 import Image from "next/image";
 
 const About = () => {
@@ -27,7 +25,7 @@ const About = () => {
                 subtitle="Find Out More About Our Business Consulting"
                 description="Fusce Quis Lacus Laoreet, Dignissim Quam Eu, Scelerisque Tortor. Cras Volutpat Aliquet Efficitur. Quisque Dignissim Justo Ac Erat Tincidunt Tristique. Curabitur Id Tortor Ipsum. Suspendisse Suscipit Commodo Turpis Eu Interdum"
               />
-              <AboutButton text="Read More" />
+              <AnimatedBtn text="Read More" />
             </div>
           </div>
         </div>
@@ -57,7 +55,7 @@ const About = () => {
                   </span>
                 </h3>
               </div>
-              <AboutButton text="Discover More" />
+              <AnimatedBtn text="Discover More" />
             </div>
             <div className="ml-5 w-full md:w-1/2 md:h-[450px]">
               <Image
@@ -83,12 +81,12 @@ const About = () => {
         src="https://img.freepik.com/free-photo/abstract-business-people-city-buildings_53876-139657.jpg?size=626&ext=jpg&ga=GA1.1.745640877.1667035334&semt=ais"
         alt="Image 3"
       />
-      
+
       <h1 className="absolute text-[60px] text-white font-bold md:top-1/2 md:left-[250px]  -translate-y-1/2">
       Implement Solutions & Achieve Goals.
       </h1>
-      <div className="absolute  font-bold md:top-1/2 md:right-[200px]  -translate-y-1/2"><AboutButton text="Discover More" /></div>
-      
+      <div className="absolute  font-bold md:top-1/2 md:right-[200px]  -translate-y-1/2"><AnimatedBtn text="Discover More" /></div>
+
     </div>
 
     </div>

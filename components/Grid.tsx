@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import useCounter from './counter';
+import useCounter from "@/hooks/counter";
 
 const Grid = () => {
   const count = useCounter(180);
@@ -8,7 +8,7 @@ const Grid = () => {
     <div className="relative   md:h-[600px] mt-8 md:mt-0">
       <div className="absolute grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2">
         <div className="md:h-[600px]">
-          <Image 
+          <Image
             className="object-cover w-full h-full"
             height={500}
             loading="lazy"
@@ -18,7 +18,7 @@ const Grid = () => {
           />
         </div>
         <div className="md:h-[500px]">
-          <Image 
+          <Image
             className="object-cover w-full h-full"
             height={500}
             loading="lazy"
@@ -27,8 +27,8 @@ const Grid = () => {
             alt="Image 1"
           />
         </div>
-        <div className="relative bg-red-500 h-[300px] 
-        w-full md:absolute md:w-[200px] md:top-[250px] ml-20 
+        <div className="relative bg-red-500 h-[300px]
+        w-full md:absolute md:w-[200px] md:top-[250px] ml-20
         md:ml-[40%] xl:ml-[40%] text-center text-white flex justify-center items-center">
           <div>
             <h1 className="mb-2 text-5xl font-bold text-white">{count}+</h1>
