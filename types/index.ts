@@ -1,6 +1,8 @@
 import { IPlanFeature, IPlanOffer, IPricing } from './Pricing';
 import { IService, Section } from './Service';
 import { ISolution } from './Solution';
+import { ITeamPage, ITeam, ISkill, IExperience } from './Team';
+import { IQuestion } from './Question';
 import {
   IHomePage,
   SanityAboutHome,
@@ -25,4 +27,9 @@ export type {
   IPricing,
   IPlanFeature,
   IPlanOffer,
+  ITeamPage,
+    ITeam,
+    ISkill,
+    IExperience,
+  IQuestion
 };

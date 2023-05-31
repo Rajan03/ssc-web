@@ -64,7 +64,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const res = await getHomeData();
   const services = await GetServicesForHome();
   const solutions = await GetSolutionsForHome();
-  const coaches = await GetCoachesForHome();
+  const coaches = await GetCoachesForHome(true);
 
   return {
     props: {

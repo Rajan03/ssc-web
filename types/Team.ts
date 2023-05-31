@@ -1,3 +1,5 @@
+import {SanityBannerTeam, SanityFAQTeam} from "@/types/sanity";
+
 export interface ITeam {
   _id: string;
   name: string;
@@ -26,4 +28,11 @@ export interface ISkill {
   _id: string;
   name: string;
   percentage: number;
+}
+
+
+export interface ITeamPage {
+  banner: SanityBannerTeam;
+  team: ITeam[];
+  faq: SanityFAQTeam;
 }

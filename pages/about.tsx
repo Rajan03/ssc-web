@@ -1,4 +1,4 @@
-import {AnimatedBtn, Card,Grid, TextMenu} from "@/components";
+import {AnimatedBtn, PageBanner,Grid, TextMenu} from "@/components";
 // NOTE: Imports from index.tsx in components folder and ABout btn rename krke AnimatedBtn kra hai bca vo puri website me use hoga (not specific to about page)
 import useCounter from "@/hooks/counter";
 import Image from "next/image";
@@ -10,7 +10,8 @@ const About = () => {
     <div>
       {/* First section */}
       <div className="relative h-full w-screen p-for-nav">
-        <Card />
+        <PageBanner title={'About Us'} route={'Home | About Us'}
+                    image={'https://img.freepik.com/free-photo/friendly-atmosphere-group-young-freelancers-office-have-conversation-smiling_146671-13630.jpg?size=626&ext=jpg&ga=GA1.1.745640877.1667035334&semt=ais'} />
       </div>
 
       {/* second section */}
