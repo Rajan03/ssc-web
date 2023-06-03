@@ -1,45 +1,64 @@
 import React from 'react';
+import {BsFillBookmarkStarFill} from "react-icons/bs";
+import Image from "next/image";
+import clsx from "clsx";
 
 interface CompanyHistoryProps {
-  title: string;
-  subtitle: string;
-  description: string;
+    year: string;
+    achievement: string;
+    description: string;
+    image: string;
+    rtl?: boolean;
 }
 
 const CompanyHistory: React.FC<CompanyHistoryProps> = ({
-  title,
-  subtitle,
-  description,
-}) => {
-  return (
-    <div>
-      <div className="container mx-4">
-        <svg
-          className="h-16 w-16 md:h-48 md:w-48 fill-red-500 mb-4 sm:mb-0"
-          viewBox="0 0 24 24"
-          fill="red-500"
-          stroke="currentColor"
-          strokeWidth={0}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-        </svg>
+                                                           year,
+                                                           achievement,
+                                                           image,
+                                                           description,
+                                                           rtl = false
+                                                       }) => {
+    const cls = clsx('relative w-full min-h-[40rem] flex flex-col items-center gap-x-12 gap-y-16 ',
+        rtl ? 'lg:flex-row-reverse' : 'lg:flex-row')
 
-        <div className="mx-10 sm:ml-10">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-red-500 mb-20 sm:mb-6">
-            {title}
-          </h1>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-black mt-20 sm:mb-6">
-            {subtitle}
-          </h2>
-          <p className="text-xl sm:text-2xl md:text-3xl font-medium text-justify text-black">
-            {description}
-          </p>
+    const txtClass = clsx('flex-1 flex flex-col justify-start px-4', rtl ? 'items-end' : 'items-start');
+    const txtAlign = rtl ? 'text-end' : 'text-start';
+
+    return (
+        <div className={cls}>
+            {/* Image Section */}
+            <div className="relative min-h-[inherit] flex-1">
+                <Image
+                    className="object-cover"
+                    fill
+                    loading="lazy"
+                    src={image}
+                    alt=""
+                />
+            </div>
+
+            {/* Divider */}
+            <div className={'absolute top-0 bottom-0 left-1/2 right-1/2 hidden lg:block min-h-full w-1 border-dashed border-l border-primary-600'} />
+
+            {/* Text Section */}
+            <div className={txtClass}>
+                <div className="flex flex-row items-center justify-start gap-x-6">
+                    <BsFillBookmarkStarFill className="text-6xl text-primary-600"/>
+                    <h3 className="text-4xl md:text-6xl font-bold text-primary-600">
+                        {year}
+                    </h3>
+                </div>
+
+                <h2 className={"text-5xl font-medium text-dark mt-20 " + txtAlign}>
+                    {achievement}
+                </h2>
+
+                <p className={"text-xl font-normal text-justify text-dark mt-4 " + txtAlign}>
+                    {description}
+                </p>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default CompanyHistory;

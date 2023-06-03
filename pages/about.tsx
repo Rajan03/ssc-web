@@ -1,4 +1,4 @@
-import {AnimatedBtn, PageBanner, SectionHeader} from "@/components";
+import {AnimatedBtn, CompanyHistory, PageBanner, SectionHeader} from "@/components";
 import {About as AboutHome} from '@/modules/home'
 import useCounter from "@/hooks/counter";
 import Image from "next/image";
@@ -41,7 +41,7 @@ const About = () => {
 
                 {/* 4th section Todo: Extract in section in module folder */}
                 <div className="container mx-auto h-full flex flex-col-reverse lg:flex-row gap-x-12 gap-y-16">
-
+                    {/*Text and Content */}
                     <div className="flex-1 flex flex-col justify-start lg:px-8 items-start lg:justify-center">
                         <SectionHeader showLine title={'WHO WE ARE'} className="mb-8"/>
                         <div className="text-6xl font-bold text-dark leading-sm text-start">
@@ -64,14 +64,37 @@ const About = () => {
                         <AnimatedBtn text="Discover More" className={"mt-12"}/>
                     </div>
 
+                    {/* Image */}
                     <div className={'flex-1 relative h-full'}>
                         <Image className="object-cover" loading="lazy" fill alt=""
                                src="https://img.freepik.com/free-photo/into-success-group-young-freelancers-office-have-conversation-smiling_146671-13567.jpg?size=626&ext=jpg&ga=GA1.1.745640877.1667035334&semt=ais"
                         />
                     </div>
-
                 </div>
 
+                {/* Company History section */}
+                <div className="container mx-auto flex flex-col gap-y-16 mt-24">
+                    <div className="self-center flex flex-col items-center">
+                        <SectionHeader showLine title={'Our History'} className="mb-8"/>
+                        <div className="text-6xl font-bold text-dark leading-sm text-start">
+                            Timeline of Our Company
+                        </div>
+                    </div>
+
+                    <div className={"flex flex-col justify-start items-stretch gap-y-12"}>
+                        {Array.of(1, 2, 3,).map((item, index) => (
+                            <CompanyHistory
+                                key={index}
+                                rtl={item % 2 === 0}
+                                image={'https://img.freepik.com/free-photo/group-people-working-out-business-plan-office_1303-15861.jpg?size=626&ext=jpg&ga=GA1.2.745640877.1667035334&semt=sph'}
+                                year="2003"
+                                achievement="Start Company"
+                                description="Aliquam Sit Amet Massa Quis Augue Porta Consequat Eu Eu Lectus. Praesent A Ipsum A Sem Tristique Aliquam Sit Amet Massa Quis Augue Porta Consequat Eu Eu Lectus. Praesent A Ipsum A Sem Tristique"
+                            />
+                        ))}
+                    </div>
+
+                </div>
             </main>
         </>
     );
