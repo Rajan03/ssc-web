@@ -16,10 +16,10 @@ const Card: React.FC = () => {
           />
           <div className="absolute w-[50%] top-0 left-0 h-full bg-gradient-to-r from-black to-gray-900 rounded-br-full border-r-8 border-r-white rounded-tr-[20%]">
             <div className="flex items-end justify-end flex-col p-6 mt-[100px] md:mt-24 md:mr-[20%]">
-              <h1 className="mb-2 text-4xl mt-[100px] font-bold text-white dark:text-neutral-50 md:mt-30 md:mr-[30%]">
+              <h1 className="mb-2 text-4xl sm-text-2xl mt-[100px] font-bold text-white dark:text-neutral-50 mt-30 mr-[30%]">
                 HOME | <span className="text-red-500">COMPANY ABOUT</span>
               </h1>
-              <h2 className="relative mb-10 text-6xl md:mr-[20%] text-white dark:text-neutral-50">
+              <h2 className="relative mb-10 sm-text-2xl text-6xl mr-[20%] text-white dark:text-neutral-50">
                 <strong>COMPANY ABOUT</strong>
               </h2>
             </div>

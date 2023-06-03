@@ -1,5 +1,5 @@
+import useCounter from '@/hooks/counter';
 import Image from 'next/image';
-import useCounter from "@/hooks/counter";
 
 const Grid = () => {
   const count = useCounter(180);

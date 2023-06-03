@@ -5,6 +5,7 @@ interface TextMenuProps {
   title: string;
   subtitle: string;
   description: string;
+  pathAlignment: 'left' | 'center' | 'right';
 }
 
 const TextMenu: React.FC<TextMenuProps> = ({
@@ -12,6 +13,7 @@ const TextMenu: React.FC<TextMenuProps> = ({
   title,
   subtitle,
   description,
+  pathAlignment = 'left', // Default value is 'start'
 }) => {
   return (
     <div className="relative w-full">
@@ -21,13 +23,14 @@ const TextMenu: React.FC<TextMenuProps> = ({
           className="w-10 h-10"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="black"
+          stroke="red"
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
             d={svgPath}
+            textAnchor={pathAlignment}
           />
         </svg>
         <h1 className="relative text-4xl font-bold text-red-500 sm:text-5xl mt-10">
