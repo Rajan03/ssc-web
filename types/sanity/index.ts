@@ -14,7 +14,7 @@ export interface SanityAboutHome {
     title: string;
     subtitle: string;
     description: string;
-    count: number;
+    count?: number;
     images: string[];
 }
 

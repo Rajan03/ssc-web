@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Axios Client
 const client = axios.create({
-  baseURL: process.env.NEXY_PUBLIC_BASE_URL,
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 });
 
 // GET Request Wrapper
