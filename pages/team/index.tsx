@@ -28,7 +28,7 @@ const Team: React.FC<Props> = ({data}) => {
                 {/* Teams Grid */}
                 {team && team.length > 0
                     ? <section className="container mx-auto px-5 py-24 grid grid-cols-1 gap-x-16 gap-y-36
-                    sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                                          mt-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                         {team.map((member) => (
                             <TeamCard {...member} key={member._id}/>
                         ))}
@@ -36,7 +36,7 @@ const Team: React.FC<Props> = ({data}) => {
                     : <NoDataFound text={'No team members Available'}/>}
 
                 {/* FAQ Section */}
-                <FAQSection faq={faq}/>
+                <FAQSection faq={faq} className={'mt-20'}/>
             </main>
         </>
     );

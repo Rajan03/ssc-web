@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import clsx from "clsx";
 import {QUOTE_BG} from "@/utils/constant";
 import React from "react";
 

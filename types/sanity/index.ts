@@ -76,7 +76,7 @@ export interface SanityBannerTeam {
 export interface SanityFAQTeam {
     title: string;
     subtitle: string;
-    questions: IQuestion[];
+    faq: IQuestion[];
 }
 
 
