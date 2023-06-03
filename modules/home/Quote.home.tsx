@@ -1,13 +1,10 @@
-import { Button } from '@/components';
-import { SanityQuoteHome } from '@/types';
+import {AnimatedBtn} from '@/components';
+import {SanityQuoteHome} from '@/types';
 import Image from "next/image";
 import {QUOTE_BG} from "@/utils/constant";
 
 const Quote: React.FC<SanityQuoteHome> = ({ title, subtitle }) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('submit');
-  };
+
   return (
     <div className="relative h-[30rem] w-full bg-primary-600 mt-[8rem] p-16 overflow-hidden">
       <Image src={QUOTE_BG} alt={'bg'} fill />
@@ -23,9 +20,8 @@ const Quote: React.FC<SanityQuoteHome> = ({ title, subtitle }) => {
 
         {/* Button */}
         <div className="flex flex-col justify-center items-center md:items-start gap-y-4">
-          <Button theme={'secondary'} size={'large'} onClick={() => console.log('clicked')}
-                  className="w-[20rem] h-[6rem] text-3xl shadow-2xl animate-bounce hover:animate-none " text={'Let\'s Connect'} />
-        </div>
+          <AnimatedBtn text={'Let\'s Connect'} theme={"bg-black"} hoverTheme={"bg-neutral-800"} className={'text-3xl'} />
+          </div>
       </div>
     </div>
   );

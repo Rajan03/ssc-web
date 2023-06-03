@@ -1,4 +1,4 @@
-import { ITeam } from '@/types/Team';
+import { ITeam } from '@/types';
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 

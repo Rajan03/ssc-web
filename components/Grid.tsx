@@ -2,7 +2,6 @@ import useCounter from '@/hooks/counter';
 import Image from 'next/image';
 
 const Grid = () => {
-  const count = useCounter(180);
 
   return (
     <div className="relative  mt-8 md:mt-0">

@@ -10,7 +10,6 @@ const About: React.FC<SanityAboutHome> = ({
   count,
   images,
 }) => {
-  //TODO: Add images in sanity and add them here
   return (
     <>
       <div className="container mx-auto gap-y-16 gap-x-8 flex flex-col lg:flex-row pb-8 sm:py-12">
@@ -37,7 +36,8 @@ const About: React.FC<SanityAboutHome> = ({
           </div>
 
           <div
-            className="hidden vsm:flex absolute sm:bottom-12 sm:left-[10%] h-[28rem] w-[22rem] bg-primary-600 text-white flex-col justify-start items-center p-6 pt-12"
+            className="hidden vsm:flex absolute sm:bottom-12 sm:left-[10%] h-[28rem] w-[22rem] bg-primary-600
+            text-white flex-col justify-start items-center p-6 pt-12"
             style={{ clipPath: 'polygon(0 0, 100% 0, 100% 76%, 0% 100%)' }}
           >
             <p className="text-7xl uppercase font-bold text-start ">{count}</p>

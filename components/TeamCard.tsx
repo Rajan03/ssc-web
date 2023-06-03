@@ -1,4 +1,4 @@
-import { ITeam } from '@/types/Team';
+import { ITeam } from '@/types';
 import Image from 'next/image';
 import React from 'react';
 

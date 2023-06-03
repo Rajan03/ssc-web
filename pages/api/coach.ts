@@ -1,6 +1,6 @@
 import connectDB from '@/lib/db.config';
 import Team from '@/models/Team';
-import { ITeam } from '@/types/Team';
+import { ITeam } from '@/types';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 /// Remains Same
