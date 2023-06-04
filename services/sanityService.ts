@@ -1,4 +1,6 @@
 import {
+    GET_ABOUT_PAGE_ABOUT,
+    GET_ABOUT_PAGE_BANNER, GET_ABOUT_PAGE_SOLUTION, GET_ABOUT_PAGE_TIMELINE, GET_ABOUT_PAGE_WHO_ARE_WE,
     GET_HOME_ABOUT,
     GET_HOME_CONTACT,
     GET_HOME_HERO,
@@ -17,8 +19,16 @@ import {
     SanityWhyUsHome,
     ITeamPage,
 } from '@/types';
-import {SanityBannerTeam, SanityContactHome, SanityFAQTeam, SanityTeamsHome} from '@/types/sanity';
+import {
+    IAboutPage,
+    SanityAboutAbout, SanityAboutSolution, SanityAboutTimeline, SanityAboutWhoWeAre,
+    SanityBannerTeam,
+    SanityContactHome,
+    SanityFAQTeam,
+    SanityTeamsHome
+} from '@/types/sanity';
 
+// GET CMS DATA FOR HOMEPAGE
 export async function getHomeData(): Promise<IHomePage> {
     const hero: SanityHeroHome = await sanityGet(GET_HOME_HERO);
     const about: SanityAboutHome = await sanityGet(GET_HOME_ABOUT);
@@ -39,6 +49,7 @@ export async function getHomeData(): Promise<IHomePage> {
     };
 }
 
+// GET CMS DATA FOR TEAM PAGE
 export async function getTeamPage(): Promise<ITeamPage> {
     const banner: SanityBannerTeam = await sanityGet(GET_TEAM_PAGE_BANNER);
     const faq: SanityFAQTeam = await sanityGet(GET_TEAM_PAGE_FAQS);
@@ -46,5 +57,22 @@ export async function getTeamPage(): Promise<ITeamPage> {
         banner,
         faq,
         team: [],
+    };
+}
+
+// GET CMS DATA FOR ABOUT PAGE
+export async function getAboutPage(): Promise<IAboutPage> {
+    const banner: SanityBannerTeam = await sanityGet(GET_ABOUT_PAGE_BANNER);
+    const about: SanityAboutAbout = await sanityGet(GET_ABOUT_PAGE_ABOUT);
+    const solution: SanityAboutSolution = await sanityGet(GET_ABOUT_PAGE_SOLUTION);
+    const whoWeAre: SanityAboutWhoWeAre = await sanityGet(GET_ABOUT_PAGE_WHO_ARE_WE);
+    const timeline: SanityAboutTimeline = await sanityGet(GET_ABOUT_PAGE_TIMELINE);
+
+    return {
+        banner,
+        about,
+        solution,
+        whoWeAre,
+        timeline,
     };
 }

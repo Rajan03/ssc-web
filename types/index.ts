@@ -5,6 +5,7 @@ import {ITeamPage, ITeam, ISkill, IExperience} from './Team';
 import {IQuestion} from './Question';
 import {
     IHomePage,
+    IAboutPage,
     SanityAboutHome,
     SanityHeroHome,
     SanityPricingHome,
@@ -31,5 +32,6 @@ export type {
     ITeam,
     ISkill,
     IExperience,
-    IQuestion
+    IQuestion,
+    IAboutPage
 };

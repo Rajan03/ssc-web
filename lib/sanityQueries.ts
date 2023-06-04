@@ -1,6 +1,6 @@
 import {groq} from 'next-sanity';
 
-//#region Home Page
+//#region HOME PAGE TYPES
 export const GET_HOME_HERO = groq`
 *[_type=="heroHome" && active == true][0] {
   name, 
@@ -77,6 +77,53 @@ export const GET_TEAM_PAGE_FAQS = groq`
         question,
         answer
     }
+}
+`;
+
+//#endregion
+
+//#region > ABOUT PAGE TYPES
+export const GET_ABOUT_PAGE_BANNER = groq`
+*[_type=="bannerAbout" && active == true][0] {
+    title,
+    subtitle,
+    "image": image.asset->url,
+}
+`;
+
+export const GET_ABOUT_PAGE_ABOUT = groq`
+*[_type=="aboutAbout" && active == true][0] {
+  'title': name, 
+  subtitle,
+  "description": description[][0].children[][0].text,
+  count,
+  "images": images[].asset->url
+}
+`;
+
+export const GET_ABOUT_PAGE_SOLUTION = groq`
+*[_type=="solutionAbout" && active == true][0] {
+    title,
+    "image": image.asset->url,
+}
+`;
+
+export const GET_ABOUT_PAGE_WHO_ARE_WE = groq`
+*[_type=="aboutWhoAreWe" && active == true][0] {
+    title,
+    subtitle,
+    count,
+    countText,
+    "description": description[][0].children[][0].text,
+    "image": image.asset->url,
+}
+`;
+
+export const GET_ABOUT_PAGE_TIMELINE = groq`
+*[_type=="timelineAbout" && active == true][0] {
+    title,
+    subtitle,
+    "timeline": timeline[] { year, description, _key, title, "image": image.asset->url }
 }
 `;
 

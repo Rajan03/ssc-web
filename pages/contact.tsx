@@ -7,7 +7,7 @@ const Contact = () => {
     return (
         <>
             <Head>
-                <title>SSC | About</title>
+                <title>SSC | Contact</title>
             </Head>
 
             <main className={`relative h-[inherit] p-for-nav`}>

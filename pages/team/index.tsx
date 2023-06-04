@@ -4,7 +4,7 @@ import {PageBanner, TeamCard, NoDataFound} from "@/components";
 import {GetStaticProps} from "next";
 import {ITeamPage} from "@/types";
 import {getTeamPage} from "@/services/sanityService";
-import {GetCoachesForHome} from "@/services/HomePageService";
+import {GetCoachesData} from "@/services/HomePageService";
 import FAQSection from "@/modules/teams/FAQSection";
 
 // Component Props
@@ -45,7 +45,7 @@ const Team: React.FC<Props> = ({data}) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
     const res = await getTeamPage();
-    const coaches = await GetCoachesForHome(false);
+    const coaches = await GetCoachesData(false);
     res.team = JSON.parse(JSON.stringify(coaches.data));
 
     return {
