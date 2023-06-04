@@ -43,7 +43,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     return {
         props: {
             data
-        }
+        },
+        revalidate: 20,
     }
 }
 
