@@ -79,4 +79,55 @@ export interface SanityFAQTeam {
     faq: IQuestion[];
 }
 
+//#endregion
 
+//#region > ABOUT PAGE TYPES
+export interface SanityBannerAbout {
+    title: string;
+    subtitle: string;
+    image: string;
+}
+
+export interface SanityAboutAbout {
+    title: string;
+    subtitle: string;
+    description: string;
+    images: string[];
+}
+
+export interface SanityAboutSolution{
+    title: string;
+    image: string;
+}
+
+export interface SanityAboutWhoWeAre{
+    title: string;
+    description: string;
+    subtitle: string;
+    count: string;
+    countText: string;
+    image: string;
+}
+
+export interface SanityAboutTimeline {
+    title: string;
+    subtitle: string;
+    timeline: ITimeLine[];
+}
+
+export interface ITimeLine {
+    year: string;
+    title: string;
+    description: string;
+    image: string;
+    _key: string;
+}
+
+export interface IAboutPage {
+    banner: SanityBannerAbout;
+    about: SanityAboutAbout;
+    solution: SanityAboutSolution;
+    whoWeAre: SanityAboutWhoWeAre;
+    timeline: SanityAboutTimeline;
+}
+//#endregion

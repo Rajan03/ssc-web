@@ -15,7 +15,7 @@ const PageBanner: React.FC<Props> = ({title, image, route}) => {
         <>
             <div className="relative w-full min-h-[60%] flex flex-col justify-center items-center">
                 {/* Banner Image */}
-                <Image src={image} alt="" priority fill className="hidden lg:block z-[-1] object-cover w-full h-full"/>
+                <Image src={image} alt="" priority fill className="hidden lg:block z-[-1] object-cover object-bottom w-full h-full"/>
 
                 {/* Banner Gradient and Pattern image */}
                 <div className={'absolute top-0 left-0 w-full lg:w-[60%] h-full z-[-1] bg-gradient-to-r ' +

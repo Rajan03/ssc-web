@@ -13,7 +13,7 @@ const font = Montserrat({
 });
 
 const Loading = () => <div
-    className="h-1 w-full bg-blue-500 fixed top-0 left-0 z-50 animate-width duration-700 ease-linear"></div>
+    className="h-1 w-full bg-primary-600 fixed top-0 left-0 z-50 animate-width duration-700 ease-linear"></div>
 
 export default function App({Component, pageProps}: AppProps) {
     const router = useRouter();

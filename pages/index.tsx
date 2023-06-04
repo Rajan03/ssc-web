@@ -8,7 +8,7 @@ import {
   WhyUs,
 } from '@/modules/home';
 import {
-  GetCoachesForHome,
+  GetCoachesData,
   GetServicesForHome,
   GetSolutionsForHome,
 } from '@/services/HomePageService';
@@ -64,7 +64,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const res = await getHomeData();
   const services = await GetServicesForHome();
   const solutions = await GetSolutionsForHome();
-  const coaches = await GetCoachesForHome(true);
+  const coaches = await GetCoachesData(true);
 
   return {
     props: {

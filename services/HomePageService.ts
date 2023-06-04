@@ -52,7 +52,7 @@ export async function GetSolutionsForHome(): Promise<{
     }
 }
 
-export async function GetCoachesForHome(forHome: boolean): Promise<{
+export async function GetCoachesData(forHome: boolean): Promise<{
     message: string;
     code: number;
     data: ITeam[];
