@@ -1,13 +1,12 @@
 import {AnimatedBtn} from '@/components';
 import {SanityQuoteHome} from '@/types';
 import Image from "next/image";
-import {QUOTE_BG} from "@/utils/constant";
 
 const Quote: React.FC<SanityQuoteHome> = ({ title, subtitle }) => {
 
   return (
     <div className="relative h-[30rem] w-full bg-primary-600 mt-[8rem] p-16 overflow-hidden">
-      <Image src={QUOTE_BG} alt={'bg'} fill />
+      <Image src={'/bg-abstract.png'} alt={'bg'} fill />
 
       <div className="h-full container mx-auto flex justify-between items-center flex-1 gap-8 flex-col md:flex-row">
         {/* TEXT */}

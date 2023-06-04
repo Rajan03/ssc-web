@@ -1,75 +1,38 @@
-import { QUOTE_BG } from '@/utils/constant';
-import React, { useState } from 'react';
-import { IconType } from 'react-icons';
+import React from 'react';
+import {IconType} from 'react-icons';
+import Image from "next/image";
 
 interface ContactCardProps {
-  title: string;
-  subtitle: string;
-  text1: string;
-  text2: string;
-  Icon: IconType;
-  isLink: boolean;
+    title: string;
+    subtitle: string;
+    text1: string;
+    text2: string;
+    Icon: IconType;
 }
 
-const ContactCard: React.FC<ContactCardProps> = ({
-  Icon,
-  isLink,
-  text2,
-  text1,
-  subtitle,
-  title,
-}) => {
-  const [isHovered, setIsHovered] = useState(false);
+const ContactCard: React.FC<ContactCardProps> = (props) => {
+    const {Icon, text2, text1, subtitle, title} = props;
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
+    return (
+        <div className="w-full h-[20rem] max-h-[20rem] relative hover:scale-105 group shadow-xl transition-all duration-[5000] ease-linear">
+            <div className={'absolute inset-0 bg-black invisible group-hover:visible rounded-lg'}>
+                <Image src={'/bg-abstract.png'} alt={''} fill className={'object-cover object-right'}/>
+            </div>
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+            <div className={"absolute inset-0 bg-white group-hover:bg-transparent p-12 " +
+                "flex flex-col justify-end items-start text-dark group-hover:text-white rounded-lg"}>
+                <h3 className="text-4xl font-medium text-primary-600 group-hover:text-white">{title}</h3>
+                <h4 className="text-2xl font-normal mt-4 mb-8">{subtitle}</h4>
+                <p className="text-xl font-light">{text1}</p>
+                <p className="text-xl font-light">{text2}</p>
+            </div>
 
-  const cardStyle = {
-    backgroundColor: isHovered ? 'black' : 'white',
-    backgroundImage: isHovered ? `url(${QUOTE_BG})` : '',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    transition: 'background-color 0.3s',
-  };
-
-  const textStyle = {
-    color: isHovered ? 'white' : '#000',
-    transition: 'color 0.3s',
-  };
-
-  return (
-    <div className="col-span-1 md:col-span-1 lg:col-span-1">
-      <div className="relative">
-        <div
-          className="bg-white rounded-lg shadow-lg py-[30%] px-10"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          style={cardStyle}
-        >
-          <h1 className="text-lg md:text-4xl font-bold mb-4  text-primary-600">
-            <span style={textStyle}>{title}</span>
-          </h1>
-          <h2 className="text-3xl font-medium text-dark mb-20">
-            <span style={textStyle}>{subtitle}</span>
-          </h2>
-          <p className="text-xl font-normal text-justify text-dark">
-            <span style={textStyle}>{text1}</span>
-          </p>
-          <p className="text-xl font-normal text-justify text-dark ">
-            <span style={textStyle}>{text2}</span>
-          </p>
+            <div className={'absolute -top-9 right-12 p-5 bg-primary-600 rounded-full group-hover:animate-bounce'}>
+                <Icon className="text-6xl text-white "/>
+                <div className={'absolute -top-3 -bottom-3 -left-3 -right-3 border-primary-600 border border-dashed rounded-full animate-spin'}/>
+            </div>
         </div>
-        <div className="absolute top-0 left-20 transform -translate-x-1/2 -translate-y-1/2">
-          <Icon className="text-[100px] ml-10 text-primary-600" />
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default ContactCard;

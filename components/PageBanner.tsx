@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import {QUOTE_BG} from "@/utils/constant";
 import React from "react";
 
 interface Props {
@@ -20,7 +19,7 @@ const PageBanner: React.FC<Props> = ({title, image, route}) => {
                 {/* Banner Gradient and Pattern image */}
                 <div className={'absolute top-0 left-0 w-full lg:w-[60%] h-full z-[-1] bg-gradient-to-r ' +
                     'from-black to-gray-900 lg:rounded-br-full lg:border-r-8 lg:border-r-white lg:rounded-tr-[20%]'}>
-                    <Image src={QUOTE_BG} alt={''} fill priority
+                    <Image src={'/bg-abstract.png'} alt={''} fill priority
                            className="object-cover object-right opacity-40"/>
                 </div>
 
