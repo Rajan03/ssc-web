@@ -11,6 +11,7 @@ import NoDataFound from './NoDataFound';
 import QuesCard from './QuesCard';
 import ErrorBoundary from "./ErrorBoundary";
 import ContactCard from "./ContactCard";
+import ResourceCard from "./ResourceCard";
 
 
 export {
@@ -26,5 +27,6 @@ export {
     QuesCard,
     ErrorBoundary,
     CompanyHistory,
-    ContactCard
+    ContactCard,
+    ResourceCard
 };

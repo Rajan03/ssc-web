@@ -7,7 +7,7 @@ import {
     GET_HOME_QUOTE,
     GET_HOME_SERVICES,
     GET_HOME_TEAMS,
-    GET_HOME_WHY_US, GET_TEAM_PAGE_BANNER, GET_TEAM_PAGE_FAQS,
+    GET_HOME_WHY_US, GET_RESOURCES_PAGE_BANNER, GET_TEAM_PAGE_BANNER, GET_TEAM_PAGE_FAQS,
 } from '@/lib/sanityQueries';
 import {sanityGet} from '@/sanity';
 import {
@@ -17,11 +17,11 @@ import {
     SanityQuoteHome,
     SanityServicesHome,
     SanityWhyUsHome,
-    ITeamPage,
+    ITeamPage, IResourcesPage,
 } from '@/types';
 import {
     IAboutPage,
-    SanityAboutAbout, SanityAboutSolution, SanityAboutTimeline, SanityAboutWhoWeAre,
+    SanityAboutAbout, SanityAboutSolution, SanityAboutTimeline, SanityAboutWhoWeAre, SanityBannerResources,
     SanityBannerTeam,
     SanityContactHome,
     SanityFAQTeam,
@@ -74,5 +74,17 @@ export async function getAboutPage(): Promise<IAboutPage> {
         solution,
         whoWeAre,
         timeline,
+    };
+}
+
+// GET CMS DATA FOR CONTACT PAGE
+
+// GET CMS DATA FOR RESOURCES PAGE
+export async function getResourcesPage(): Promise<IResourcesPage> {
+    const banner: SanityBannerResources = await sanityGet(GET_RESOURCES_PAGE_BANNER);
+    return {
+        banner,
+        resources: [],
+        categories: [],
     };
 }

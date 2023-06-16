@@ -7,6 +7,7 @@ interface AnimatedBtnProps {
     hoverTheme?: string;
     className?: string;
     onClick?: () => void;
+    type?: "button" | "submit" | "reset";
 }
 
 const AnimatedBtn: React.FC<AnimatedBtnProps> = ({
@@ -14,7 +15,8 @@ const AnimatedBtn: React.FC<AnimatedBtnProps> = ({
                                                      className,
                                                      theme = "bg-black",
                                                      hoverTheme = "bg-primary-600",
-                                                     onClick
+                                                     onClick,
+                                                     type = "button"
                                                  }) => {
     const cls = clsx(
         "relative min-w-[18rem] min-h-[6rem] flex items-center justify-center rounded-sm"
@@ -30,7 +32,7 @@ const AnimatedBtn: React.FC<AnimatedBtnProps> = ({
 
     const textCls = clsx("font-medium z-10 w-full text-white group-hover:text-white")
     return (
-        <button className={cls + " group"} onClick={onClick}>
+        <button type={type} className={cls + " group"} onClick={onClick}>
             <span className={hoverCls + " group-hover:w-[30rem] group-hover:h-[30rem]"}/>
             <span className={textCls}>{text}</span>
         </button>

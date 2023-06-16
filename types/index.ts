@@ -3,6 +3,7 @@ import {IService, Section} from './Service';
 import {ISolution} from './Solution';
 import {ITeamPage, ITeam, ISkill, IExperience} from './Team';
 import {IQuestion} from './Question';
+import {IResourcesPage, IResourceCategory, IResource, IResourceReview} from './resources';
 import {
     IHomePage,
     IAboutPage,
@@ -33,5 +34,9 @@ export type {
     ISkill,
     IExperience,
     IQuestion,
-    IAboutPage
+    IAboutPage,
+    IResourcesPage,
+    IResource,
+    IResourceCategory,
+    IResourceReview
 };

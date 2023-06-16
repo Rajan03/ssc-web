@@ -13,7 +13,7 @@ const navItems = [
   { text: 'Home', url: '/' },
   { text: 'About Us', url: '/about' },
   { text: 'Our Team', url: '/team' },
-  { text: 'Reasources', url: '/resource' },
+  { text: 'Resources', url: '/resource' },
   { text: 'Contact', url: '/contact' },
 ];
 

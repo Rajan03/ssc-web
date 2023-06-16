@@ -2,8 +2,6 @@ import {AnimatedBtn, SectionHeader} from "@/components";
 import React from "react";
 import {BiUser} from "react-icons/bi";
 import {CiMail} from "react-icons/ci";
-import {BsFillJournalBookmarkFill} from "react-icons/bs";
-import {AiOutlineMessage} from "react-icons/ai";
 
 const InputWithIcon = (props: any) => {
     const {Icon, ...other} = props;
@@ -19,9 +17,14 @@ const InputWithIcon = (props: any) => {
 }
 
 const ContactForm = () => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+    }
+
     return (
         <>
-            <div className={'mt-40 max-w-[100rem] w-[90%] sm:w-[80%] md:w-[70%] mx-auto py-20 px-16 shadow-2xl rounded flex flex-col'}>
+            <div
+                className={'mt-40 max-w-[100rem] w-[90%] sm:w-[80%] md:w-[70%] mx-auto py-20 px-16 shadow-2xl rounded flex flex-col'}>
                 <div className={"self-center flex flex-col items-center"}>
                     <SectionHeader title={'Get in touch'} showLine/>
                     <div className="text-6xl font-bold text-dark leading-sm text-center md:text-start">
@@ -29,7 +32,7 @@ const ContactForm = () => {
                     </div>
                 </div>
 
-                <form className={'mt-16'}>
+                <form onSubmit={handleSubmit} className={'mt-16'}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <InputWithIcon Icon={BiUser} type="text" placeholder={'Full Name'}/>
                         <InputWithIcon Icon={CiMail} type="email" placeholder={'Email'}/>
@@ -40,7 +43,7 @@ const ContactForm = () => {
                     <InputWithIcon placeholder={'Message'}
                                    className={'web-input w-full h-40 mt-10 resize-none'}/>
 
-                    <AnimatedBtn text={'Send'} className={'mt-16'}/>
+                    <AnimatedBtn type={'submit'} text={'Send'} className={'mt-16'}/>
                 </form>
             </div>
         </>

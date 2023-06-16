@@ -4,7 +4,7 @@ import {PageBanner, TeamCard, NoDataFound} from "@/components";
 import {GetStaticProps} from "next";
 import {ITeamPage} from "@/types";
 import {getTeamPage} from "@/services/sanityService";
-import {GetCoachesData} from "@/services/HomePageService";
+import {GetCoachesData} from "@/services/AppService";
 import FAQSection from "@/modules/teams/FAQSection";
 
 // Component Props
@@ -51,7 +51,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     return {
         props: {
             data: res
-        }
+        },
+        revalidate: 20,
     };
 }
 

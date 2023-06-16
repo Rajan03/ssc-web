@@ -11,7 +11,7 @@ import {
   GetCoachesData,
   GetServicesForHome,
   GetSolutionsForHome,
-} from '@/services/HomePageService';
+} from '@/services/AppService';
 import { getHomeData } from '@/services/sanityService';
 import { IHomePage } from '@/types';
 import { GetStaticProps } from 'next';

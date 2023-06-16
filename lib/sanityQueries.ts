@@ -128,3 +128,21 @@ export const GET_ABOUT_PAGE_TIMELINE = groq`
 `;
 
 //#endregion
+
+//#region > RESOURCES PAGE TYPES
+export const GET_RESOURCES_PAGE_BANNER = groq`
+*[_type=="bannerResource" && active == true][0] {
+    title,
+    subtitle,
+    "image": image.asset->url,
+}
+`;
+export const GET_RESOURCES_FOR_PAGE = groq`
+*[_type=="filesResource" && active == true][0] {
+    title,
+    "shortDescription": shortDescription[][0].children[][0].text,
+    "description": description[][0].children[][0].text,
+    "image": image.asset->url,
+}
+`;
+//#endregion

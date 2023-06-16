@@ -2,7 +2,9 @@ import connectDB from '@/lib/db.config';
 import Service from '@/models/Service';
 import Solution from '@/models/Solution';
 import Team from '@/models/Team';
-import {IService, ISolution, ITeam} from '@/types';
+import Resource from '@/models/Resource';
+import ResourceCategory from "@/models/ResourceCategory";
+import {IResource, IResourceCategory, IService, ISolution, ITeam} from '@/types';
 
 export async function GetServicesForHome(): Promise<{
     message: string;
@@ -73,6 +75,62 @@ export async function GetCoachesData(forHome: boolean): Promise<{
                     ? teams.length + ' Team members found'
                     : 'No Team member found',
             data: teams,
+        };
+    } catch (error: any) {
+        return {code: 500, message: error.message as string, data: []};
+    }
+}
+
+export async function GetResources(): Promise<{
+    message: string;
+    code: number;
+    data: IResource[];
+}> {
+try {
+        // Database Connection
+        await connectDB();
+
+        // Database Data Fetch
+        const resources = await Resource
+            .find<IResource>({active: true})
+            .select(['-reviews', '-__v', '-active'])
+            .sort({createdAt: -1});
+
+
+        // Return Data
+        return {
+            code: 200,
+            message:
+                resources.length > 0
+                    ? resources.length + ' Resources found'
+                    : 'No Resource found',
+            data: resources,
+        };
+    } catch (error: any) {
+        return {code: 500, message: error.message as string, data: []};
+    }
+}
+
+export async function GetResourcesCategory(): Promise<{
+    message: string;
+    code: number;
+    data: IResourceCategory[];
+}> {
+    try {
+        // Database Connection
+        await connectDB();
+
+        // Database Data Fetch
+        const resourcesCategory = await ResourceCategory.find<IResourceCategory>({active: true});
+
+        // Return Data
+        return {
+            code: 200,
+            message:
+                resourcesCategory.length > 0
+                    ? resourcesCategory.length + ' Resources Categories found'
+                    : 'No Resource found',
+            data: resourcesCategory,
         };
     } catch (error: any) {
         return {code: 500, message: error.message as string, data: []};

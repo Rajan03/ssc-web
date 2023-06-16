@@ -1,0 +1,23 @@
+[
+  {
+    "title": "CliftonStrengths Top 5 Access",
+    "shortDescription": "Discover more about you and unlock your Top 5 CliftonStrengths today and get access to all of the amazing resources. ",
+    "description": "Discover more about you and unlock your Top 5 CliftonStrengths today and get access to all of the amazing resources, you'll learn something new every time you revisit your report.",
+    "image": "https://res.cloudinary.com/dowqso9ow/image/upload/v1684175115/SSC/Layer_1_icpo91.jpg",
+    "category": "6485d20b67febb3d730a7e93",
+    "price": 149.99,
+    "included": [
+      "Discover your unique Top 5 Talent Themes",
+      "Let’s Talk Strengths e-books",
+      "Signature Theme Report",
+      "CliftonStrengths Insight Report"
+    ],
+    "reviews": []
+  },
+  {
+    "name": "Rajan Kumar",
+    "review": "This is a test review",
+    "rating": 4,
+    "resource": "6485dcf87e15f791ecbc9e67"
+  }
+]

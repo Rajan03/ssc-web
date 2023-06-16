@@ -131,3 +131,10 @@ export interface IAboutPage {
     timeline: SanityAboutTimeline;
 }
 //#endregion
+
+//#region > RESOURCES PAGE TYPES
+export interface SanityBannerResources {
+    title: string;
+    subtitle: string;
+    image: string;
+}
