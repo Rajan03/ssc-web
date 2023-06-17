@@ -6,8 +6,8 @@ import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import Error from "@/pages/_error";
 import {TeamModal} from "@/modules/teams";
-import {ContactModal} from "../modules/contact";
-import {ResourceModal} from "../modules/resources";
+import {ContactModal} from "@/modules/contact";
+import {ResourceModal} from "@/modules/resources";
 
 // Font import
 const font = Montserrat({

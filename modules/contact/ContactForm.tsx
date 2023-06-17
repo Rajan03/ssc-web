@@ -1,10 +1,9 @@
-import {AnimatedBtn, SectionHeader} from "@/components";
+import {AnimatedBtn, SectionHeader, InputWithIcon} from "@/components";
 import React, {useState} from "react";
 import {BiUser} from "react-icons/bi";
 import {CiMail} from "react-icons/ci";
-import {InputWithIcon} from "@/components";
 import toast from "react-hot-toast";
-import {SendContactForm} from "@/services/AppService";
+import {sendContactForm} from "@/services/AppService";
 
 
 const ContactForm = () => {
@@ -22,7 +21,7 @@ const ContactForm = () => {
         }
 
         try {
-            await SendContactForm({name, email, message});
+            await sendContactForm({name, email, message});
             setName('');
             setEmail('');
             setMessage('');

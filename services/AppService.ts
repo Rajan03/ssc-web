@@ -16,7 +16,8 @@ export async function GetServices(forHome?: boolean): Promise<{
         await connectDB();
 
         // Database Data
-        const data = await Service.find<IService>(forHome ? {showOnHome: true} : {});
+        const filter = forHome ? {showOnHome: true} : {};
+        const data = await Service.find<IService>(filter);
 
         // Return Data
         return {
@@ -137,7 +138,7 @@ export async function GetResourcesCategory(): Promise<{
     }
 }
 
-export async function SendContactForm(data: {name: string, email: string, message: string}) {
+export async function sendContactForm(data: {name: string, email: string, message: string}) {
     const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
