@@ -14,6 +14,7 @@ import ContactCard from "./ContactCard";
 import ResourceCard from "./ResourceCard";
 import Modal from "./Modal";
 import InputWithIcon from "./InputWithIcon";
+import Footer from "./Footer";
 
 
 export {
@@ -32,5 +33,6 @@ export {
     ContactCard,
     ResourceCard,
     InputWithIcon,
-    Modal
+    Modal,
+    Footer
 };

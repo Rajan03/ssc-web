@@ -3,10 +3,11 @@ import React, {useState} from "react";
 import {BiUser} from "react-icons/bi";
 import {CiMail} from "react-icons/ci";
 import toast from "react-hot-toast";
-import {sendContactForm} from "@/services/AppService";
+// import {sendContactForm} from "@/services/AppService";
 
 
 const ContactForm = () => {
+    const [loading, setLoading] = useState<boolean>(false);
     const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [message, setMessage] = useState<string>('');
@@ -16,16 +17,32 @@ const ContactForm = () => {
         e.preventDefault();
 
         if (name === '' || email === '' || message === '') {
-            alert('Please fill all the fields');
+            toast.error('Please fill all the fields')
             return;
         }
 
         try {
-            await sendContactForm({name, email, message});
-            setName('');
-            setEmail('');
-            setMessage('');
-            toast.success('Message sent successfully');
+            setLoading(true);
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                body: JSON.stringify({name, email, message}),
+            })
+
+            if ((await res.json()).status === 200) {
+                setLoading(false);
+                setName('');
+                setEmail('');
+                setSubject('');
+                setMessage('');
+                toast.success('Message sent successfully');
+            } else {
+                setLoading(false);
+                toast.error('Something went wrong');
+            }
         }
         catch (e) {
             toast.error('Something went wrong');
@@ -45,18 +62,18 @@ const ContactForm = () => {
 
                 <form onSubmit={handleSubmit} className={'mt-16'}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <InputWithIcon Icon={BiUser} value={name} type="text" placeholder={'Full Name'}
+                        <InputWithIcon Icon={BiUser} value={name} type="text" placeholder={'Full Name'} disabled={loading}
                                        label={'Full Name'} onChange={e => setName(e.target.value)}/>
-                        <InputWithIcon Icon={CiMail} value={email} type="email" placeholder={'Email'}
+                        <InputWithIcon Icon={CiMail} value={email} type="email" placeholder={'Email'} disabled={loading}
                                        label={'Email'} onChange={e => setEmail(e.target.value)}/>
                     </div>
 
-                    <InputWithIcon type="text" placeholder={'Subject'} value={subject} className={'mt-10'}
+                    <InputWithIcon type="text" placeholder={'Subject'} value={subject} className={'mt-10'} disabled={loading}
                                    label={'Subject'} onChange={e => setSubject(e.target.value)}/>
-                    <InputWithIcon placeholder={'Message'} value={message} className={'h-40 mt-10'}
+                    <InputWithIcon placeholder={'Message'} value={message} className={'h-40 mt-10'} disabled={loading}
                                    label={'Message'} onChange={e => setMessage(e.target.value)}/>
 
-                    <AnimatedBtn type={'submit'} text={'Send'} className={'mt-16'}/>
+                    <AnimatedBtn disabled={loading} loading={loading} type={'submit'} text={'Send'} className={'mt-16'}/>
                 </form>
             </div>
         </>

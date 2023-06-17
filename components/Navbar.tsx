@@ -8,14 +8,8 @@ import { FaBell } from 'react-icons/fa';
 import { IoIosRemoveCircleOutline, IoMdCall } from 'react-icons/io';
 import { MdEmail } from 'react-icons/md';
 import Logo from './Logo';
+import {navItems} from "@/utils/constant";
 
-const navItems = [
-  { text: 'Home', url: '/' },
-  { text: 'About Us', url: '/about' },
-  { text: 'Our Team', url: '/team' },
-  { text: 'Resources', url: '/resource' },
-  { text: 'Contact', url: '/contact' },
-];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

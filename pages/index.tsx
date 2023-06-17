@@ -33,7 +33,7 @@ const Home: React.FC<Props> = ({ data }) => {
         <title>SSC | Home</title>
       </Head>
 
-      <main className={`relative h-[inherit] p-for-nav`}>
+      <main className={`relative min-h-[inherit] p-for-nav`}>
         {/* Hero */}
         <Hero {...hero} />
 

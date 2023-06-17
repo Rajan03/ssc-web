@@ -1,26 +1,56 @@
 import {AnimatedBtn, InputWithIcon, Modal} from "@/components";
 import {useResourceModal} from "@/hooks/modals";
-import React from "react";
+import React, {useState} from "react";
 import {BiUser} from "react-icons/bi";
 import {CiMail} from "react-icons/ci";
+import toast from "react-hot-toast";
 
 export default function ResourceModal() {
     const {open, setIsOpen, resource} = useResourceModal();
+    const [loading, setLoading] = useState<boolean>(false);
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
 
     if (!resource) return null;
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        if (name === '' || email === '') {
+            toast.error('Please fill all the fields')
+            return;
+        }
+
+        try {
+            setLoading(true);
+            const res = await fetch('/api/resource/request', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                body: JSON.stringify({name, email, resource: resource.title}),
+            })
+            if ((await res.json()).status === 200) {
+                setLoading(false);
+                setName('');
+                setEmail('');
+                toast.success('Resource request sent successfully! You will be notified through email.');
+            } else {
+                setLoading(false);
+                toast.error('Something went wrong');
+            }
+        } catch (e) {
+            toast.error('Something went wrong');
+        }
     }
 
     const handleCancel = () => {
         setIsOpen(false);
+        setName('');
+        setEmail('');
+        setLoading(false);
     }
-
-    const getInTouch = () => {
-
-    }
-
 
     return (
         <>
@@ -55,14 +85,19 @@ export default function ResourceModal() {
                 {/* MODAL FORM */}
                 <form onSubmit={handleSubmit} className={'mt-12 min-w-3xl'}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <InputWithIcon Icon={BiUser} type="text" placeholder={'Full Name'} label={'Full Name'} />
-                        <InputWithIcon Icon={CiMail} type="email" placeholder={'Email'} label={'Email'} />
+                        <InputWithIcon Icon={BiUser} type="text" placeholder={'Full Name'} label={'Full Name'}
+                                       disabled={loading}
+                                       value={name} onChange={e => setName(e.target.value)}/>
+                        <InputWithIcon Icon={CiMail} type="email" placeholder={'Email'} label={'Email'}
+                                       disabled={loading}
+                                       value={email} onChange={e => setEmail(e.target.value)}/>
                     </div>
 
                     <InputWithIcon type="text" placeholder={'Resource Name'} disabled={true} label={'Resource Name'}
                                    value={resource.title} className={'mt-8'}/>
 
-                    <AnimatedBtn type={'submit'} text={'Send'} className={'mt-12 mx-auto'}/>
+                    <AnimatedBtn disabled={loading} loading={loading} type={'submit'} text={'Send'}
+                                 className={'mt-12 mx-auto'}/>
                 </form>
             </Modal>
         </>

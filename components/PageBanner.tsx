@@ -12,7 +12,7 @@ const PageBanner: React.FC<Props> = ({title, image, route}) => {
 
     return (
         <>
-            <div className="relative w-full min-h-[60%] flex flex-col justify-center items-center">
+            <div className="relative w-full h-except-nav flex flex-col justify-center items-center">
                 {/* Banner Image */}
                 <Image src={image} alt="" priority fill className="hidden lg:block z-[-1] object-cover object-bottom w-full h-full"/>
 
@@ -30,7 +30,7 @@ const PageBanner: React.FC<Props> = ({title, image, route}) => {
                         <span className="text-white">|</span>
                         <span className="text-primary-500">{routeArray[1]}</span>
                     </h1>
-                    <h2 className="text-6xl font-semibold text-white uppercase text-center lg:text-left leading-base">
+                    <h2 className="max-w-[90rem] text-7xl md:text-9xl font-bold text-white uppercase text-center lg:text-left leading-base">
                         {title}
                     </h2>
                 </div>

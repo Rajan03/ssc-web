@@ -17,7 +17,7 @@ const About: React.FC<Props> = ({data}) => {
                 <title>SSC | About</title>
             </Head>
 
-            <main className={`relative h-[inherit] p-for-nav`}>
+            <main className={`relative min-h-[inherit] p-for-nav`}>
                 {/* Banner section */}
                 <PageBanner title={banner.title} route={banner.subtitle} image={banner.image}/>
 

@@ -1,4 +1,4 @@
-import {Navbar, ErrorBoundary} from '@/components';
+import {Navbar, ErrorBoundary, Footer} from '@/components';
 import '@/styles/globals.css';
 import type {AppProps} from 'next/app';
 import {Montserrat} from 'next/font/google';
@@ -8,6 +8,7 @@ import Error from "@/pages/_error";
 import {TeamModal} from "@/modules/teams";
 import {ContactModal} from "@/modules/contact";
 import {ResourceModal} from "@/modules/resources";
+import {Toaster} from "react-hot-toast";
 
 // Font import
 const font = Montserrat({
@@ -43,11 +44,12 @@ export default function App({Component, pageProps}: AppProps) {
 
     return (
         <>
+            <Toaster position={'top-right'} />
             <TeamModal/>
             <ContactModal/>
             <ResourceModal/>
 
-            <div className={'h-screen w-full ' + font.className}>
+            <div className={'min-h-screen w-full ' + font.className}>
                 <Navbar/>
 
                 {/* Loading Spinner */}
@@ -57,6 +59,9 @@ export default function App({Component, pageProps}: AppProps) {
                 <ErrorBoundary fallback={<Error/>}>
                     <Component {...pageProps} />
                 </ErrorBoundary>
+
+                {/* Footer */}
+                <Footer />
             </div>
         </>
     );

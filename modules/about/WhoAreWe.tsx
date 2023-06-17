@@ -6,7 +6,7 @@ import {SanityAboutWhoWeAre} from "@/types/sanity";
 const WhoAreWe: React.FC<SanityAboutWhoWeAre> = ({title, subtitle, description, image, count, countText}) => {
 
     return (
-        <div className="container mx-auto my-24 py-12 h-[inherit] flex flex-col-reverse lg:flex-row gap-x-12 gap-y-16">
+        <div className="container mx-auto my-24 py-12 flex flex-col-reverse lg:flex-row gap-x-12 gap-y-16">
             {/*Text and Content */}
             <div className="flex-1 flex flex-col justify-start lg:px-8 items-start lg:justify-center">
                 <SectionHeader showLine title={subtitle} className="mb-8"/>
@@ -30,7 +30,7 @@ const WhoAreWe: React.FC<SanityAboutWhoWeAre> = ({title, subtitle, description, 
             </div>
 
             {/* Image */}
-            <div className={'flex-1 relative h-full'}>
+            <div className={'flex-1 relative self-stretch'}>
                 <Image className="object-cover" loading="lazy" fill alt="" src={image}/>
             </div>
         </div>

@@ -21,8 +21,8 @@ const CardsSection = () => {
       <ContactCard
         Icon={MdEmail}
         subtitle={'Drop Us A Mail We Will Answer You Asap'}
-        text1={'info.conbix@gmail.com'}
-        text2={'conbix@gmail.com'}
+        text1={'info.ssc@gmail.com'}
+        text2={'soka@gmail.com'}
         title={'Quick Email'}
       />
     </div>

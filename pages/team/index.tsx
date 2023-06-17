@@ -20,7 +20,7 @@ const Team: React.FC<Props> = ({data}) => {
             <Head>
                 <title>SSC | Team</title>
             </Head>
-            <main className={`relative h-[inherit] p-for-nav`}>
+            <main className={`relative min-h-[inherit] p-for-nav`}>
 
                 {/* Page Banner */}
                 <PageBanner route={banner.subtitle} title={banner.title} image={banner.image}/>

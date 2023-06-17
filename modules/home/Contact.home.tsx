@@ -46,7 +46,8 @@ const Contact: React.FC<SanityContactHome> = ({
         <div className="flex-1 flex justify-center md:justify-end relative">
           <form
             onSubmit={handleSubmit}
-            className="w-full xl:w-[80%] flex flex-col justify-start items-stretch gap-y-8 p-8 bg-white rounded-md absolute top-[40%]"
+            className={"w-full xl:w-[80%] flex flex-col justify-start items-stretch gap-y-8 p-8 bg-white " +
+                "rounded-md relative top-[30%]"}
           >
             <h4 className="text-6xl font-bold text-dark leading-sm text-start self-center">
               Get in touch

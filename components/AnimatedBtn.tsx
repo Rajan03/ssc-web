@@ -8,6 +8,8 @@ interface AnimatedBtnProps {
     className?: string;
     onClick?: () => void;
     type?: "button" | "submit" | "reset";
+    disabled?: boolean;
+    loading?: boolean;
 }
 
 const AnimatedBtn: React.FC<AnimatedBtnProps> = ({
@@ -16,7 +18,9 @@ const AnimatedBtn: React.FC<AnimatedBtnProps> = ({
                                                      theme = "bg-black",
                                                      hoverTheme = "bg-primary-600",
                                                      onClick,
-                                                     type = "button"
+                                                     type = "button",
+                                                     disabled = false,
+                                                     loading = false
                                                  }) => {
     const cls = clsx(
         "relative min-w-[18rem] min-h-[6rem] flex items-center justify-center rounded-sm"
@@ -32,9 +36,12 @@ const AnimatedBtn: React.FC<AnimatedBtnProps> = ({
 
     const textCls = clsx("font-medium z-10 w-full text-white group-hover:text-white")
     return (
-        <button type={type} className={cls + " group"} onClick={onClick}>
+        <button disabled={disabled} type={type} className={cls + " group"} onClick={onClick}>
             <span className={hoverCls + " group-hover:w-[30rem] group-hover:h-[30rem]"}/>
-            <span className={textCls}>{text}</span>
+            {!loading && <span className={textCls}>{text}</span>}
+
+            {/*Loading Spinner*/}
+            {loading && <span className="w-6 h-6 border-2 border-white rounded-full animate-spin"/>}
         </button>
     );
 };

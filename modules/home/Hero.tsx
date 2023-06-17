@@ -7,16 +7,16 @@ const Hero: React.FC<SanityHeroHome> = (props) => {
 
   return (
     <>
-      <section className="relative overflow-hidden h-[inherit]">
+      <section className="relative overflow-hidden min-h-[inherit]">
         <div
-          className="lg:w-[60%] md:w-[80%] bg-primary-600 left-6 absolute w-full h-full 
+          className="lg:w-[60%] md:w-[80%] bg-primary-600 left-6 absolute w-full h-full
         md:rounded-br-[70%]"
         />
 
         {/* HERO Text Section */}
         <div
           className="lg:w-[60%] md:w-[80%] lg:max-w-[60%] absolute left-0 w-full h-full bg-dark md:hero-clip-dark md:rounded-br-[70%]
-         flex flex-col items-center 
+         flex flex-col items-center
         md:items-start justify-center px-4 sm:px-16 md:max-w-[80%]"
         >
           {/* SUBTITLE */}
