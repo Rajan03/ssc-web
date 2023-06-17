@@ -5,6 +5,9 @@ import {Montserrat} from 'next/font/google';
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import Error from "@/pages/_error";
+import {TeamModal} from "@/modules/teams";
+import {ContactModal} from "../modules/contact";
+import {ResourceModal} from "../modules/resources";
 
 // Font import
 const font = Montserrat({
@@ -38,18 +41,23 @@ export default function App({Component, pageProps}: AppProps) {
         }
     }, [router]);
 
-    // TODO: Error Boundary for the entire app Suspense
     return (
-        <div className={'h-screen w-full ' + font.className}>
-            <Navbar/>
+        <>
+            <TeamModal/>
+            <ContactModal/>
+            <ResourceModal/>
 
-            {/* Loading Spinner */}
-            {isLoading && <Loading/>}
+            <div className={'h-screen w-full ' + font.className}>
+                <Navbar/>
 
-            {/* Page Content */}
-            <ErrorBoundary fallback={<Error/>}>
-                <Component {...pageProps} />
-            </ErrorBoundary>
-        </div>
+                {/* Loading Spinner */}
+                {isLoading && <Loading/>}
+
+                {/* Page Content */}
+                <ErrorBoundary fallback={<Error/>}>
+                    <Component {...pageProps} />
+                </ErrorBoundary>
+            </div>
+        </>
     );
 }

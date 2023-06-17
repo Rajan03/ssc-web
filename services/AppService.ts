@@ -6,7 +6,7 @@ import Resource from '@/models/Resource';
 import ResourceCategory from "@/models/ResourceCategory";
 import {IResource, IResourceCategory, IService, ISolution, ITeam} from '@/types';
 
-export async function GetServicesForHome(): Promise<{
+export async function GetServices(forHome?: boolean): Promise<{
     message: string;
     code: number;
     data: IService[];
@@ -16,7 +16,7 @@ export async function GetServicesForHome(): Promise<{
         await connectDB();
 
         // Database Data
-        const data = await Service.find<IService>({showOnHome: true});
+        const data = await Service.find<IService>(forHome ? {showOnHome: true} : {});
 
         // Return Data
         return {

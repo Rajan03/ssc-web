@@ -14,6 +14,7 @@ const navItems = [
   { text: 'About Us', url: '/about' },
   { text: 'Our Team', url: '/team' },
   { text: 'Resources', url: '/resource' },
+  { text: 'Feedback', url: '/feedback' },
   { text: 'Contact', url: '/contact' },
 ];
 
@@ -46,7 +47,7 @@ const Navbar = () => {
     <>
       <nav
         className="w-full fixed top-0 left-1/2 -translate-x-1/2 flex flex-col
-      transition-all duration-300 ease-in-out h-navbar z-30"
+      transition-all duration-300 ease-in-out h-navbar z-[5]"
       >
         {/* TOP BAR */}
         <div className="top-nav">

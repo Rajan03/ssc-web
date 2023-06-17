@@ -5,7 +5,7 @@ import {GetStaticProps} from "next";
 import {ITeamPage} from "@/types";
 import {getTeamPage} from "@/services/sanityService";
 import {GetCoachesData} from "@/services/AppService";
-import FAQSection from "@/modules/teams/FAQSection";
+import {FAQSection} from "@/modules/teams";
 
 // Component Props
 type Props = {

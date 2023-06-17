@@ -138,3 +138,16 @@ export interface SanityBannerResources {
     subtitle: string;
     image: string;
 }
+//#endregion
+
+//#region > FEEDBACK PAGE TYPES.
+export interface SanityBannerFeedback {
+    title: string;
+    subtitle: string;
+    image: string;
+}
+
+export interface IFeedbackPage {
+    banner: SanityBannerFeedback;
+    services: IService[];
+}

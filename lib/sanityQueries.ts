@@ -146,3 +146,13 @@ export const GET_RESOURCES_FOR_PAGE = groq`
 }
 `;
 //#endregion
+
+//#region > FEEDBACK PAGE TYPES
+export const GET_FEEDBACK_PAGE_BANNER = groq`
+*[_type=="bannerFeedback" && active == true][0] {
+    title,
+    subtitle,
+    "image": image.asset->url,
+}
+`;
+//#endregion

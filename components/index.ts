@@ -12,6 +12,8 @@ import QuesCard from './QuesCard';
 import ErrorBoundary from "./ErrorBoundary";
 import ContactCard from "./ContactCard";
 import ResourceCard from "./ResourceCard";
+import Modal from "./Modal";
+import InputWithIcon from "./InputWithIcon";
 
 
 export {
@@ -28,5 +30,7 @@ export {
     ErrorBoundary,
     CompanyHistory,
     ContactCard,
-    ResourceCard
+    ResourceCard,
+    InputWithIcon,
+    Modal
 };

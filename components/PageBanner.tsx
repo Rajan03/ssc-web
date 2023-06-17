@@ -24,7 +24,7 @@ const PageBanner: React.FC<Props> = ({title, image, route}) => {
                 </div>
 
                 {/* Banner Text */}
-                <div className={'container mx-auto z-10 h-full flex justify-center items-center lg:items-start flex-col gap-y-8'}>
+                <div className={'container mx-auto h-full flex justify-center items-center lg:items-start flex-col gap-y-8'}>
                     <h1 className="text-4xl font-semibold flex gap-x-8 uppercase text-center lg:text-left">
                         <span className="text-white">{routeArray[0]}</span>
                         <span className="text-white">|</span>

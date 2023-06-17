@@ -9,7 +9,7 @@ import {
 } from '@/modules/home';
 import {
   GetCoachesData,
-  GetServicesForHome,
+  GetServices,
   GetSolutionsForHome,
 } from '@/services/AppService';
 import { getHomeData } from '@/services/sanityService';
@@ -62,7 +62,7 @@ export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const res = await getHomeData();
-  const services = await GetServicesForHome();
+  const services = await GetServices(true);
   const solutions = await GetSolutionsForHome();
   const coaches = await GetCoachesData(true);
 

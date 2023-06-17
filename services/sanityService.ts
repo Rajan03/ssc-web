@@ -1,13 +1,20 @@
 import {
     GET_ABOUT_PAGE_ABOUT,
-    GET_ABOUT_PAGE_BANNER, GET_ABOUT_PAGE_SOLUTION, GET_ABOUT_PAGE_TIMELINE, GET_ABOUT_PAGE_WHO_ARE_WE,
+    GET_ABOUT_PAGE_BANNER,
+    GET_ABOUT_PAGE_SOLUTION,
+    GET_ABOUT_PAGE_TIMELINE,
+    GET_ABOUT_PAGE_WHO_ARE_WE,
+    GET_FEEDBACK_PAGE_BANNER,
     GET_HOME_ABOUT,
     GET_HOME_CONTACT,
     GET_HOME_HERO,
     GET_HOME_QUOTE,
     GET_HOME_SERVICES,
     GET_HOME_TEAMS,
-    GET_HOME_WHY_US, GET_RESOURCES_PAGE_BANNER, GET_TEAM_PAGE_BANNER, GET_TEAM_PAGE_FAQS,
+    GET_HOME_WHY_US,
+    GET_RESOURCES_PAGE_BANNER,
+    GET_TEAM_PAGE_BANNER,
+    GET_TEAM_PAGE_FAQS,
 } from '@/lib/sanityQueries';
 import {sanityGet} from '@/sanity';
 import {
@@ -17,16 +24,22 @@ import {
     SanityQuoteHome,
     SanityServicesHome,
     SanityWhyUsHome,
-    ITeamPage, IResourcesPage,
+    ITeamPage, IResourcesPage, IService,
 } from '@/types';
 import {
-    IAboutPage,
-    SanityAboutAbout, SanityAboutSolution, SanityAboutTimeline, SanityAboutWhoWeAre, SanityBannerResources,
+    IAboutPage, IFeedbackPage,
+    SanityAboutAbout,
+    SanityAboutSolution,
+    SanityAboutTimeline,
+    SanityAboutWhoWeAre,
+    SanityBannerFeedback,
+    SanityBannerResources,
     SanityBannerTeam,
     SanityContactHome,
     SanityFAQTeam,
     SanityTeamsHome
 } from '@/types/sanity';
+import {GetServices} from "@/services/AppService";
 
 // GET CMS DATA FOR HOMEPAGE
 export async function getHomeData(): Promise<IHomePage> {
@@ -86,5 +99,15 @@ export async function getResourcesPage(): Promise<IResourcesPage> {
         banner,
         resources: [],
         categories: [],
+    };
+}
+
+// GET CMS DATA FOR FEEDBACK PAGE
+export async function getFeedbackPage(): Promise<IFeedbackPage> {
+    const banner: SanityBannerFeedback = await sanityGet(GET_FEEDBACK_PAGE_BANNER);
+
+    return {
+        banner,
+        services: [],
     };
 }

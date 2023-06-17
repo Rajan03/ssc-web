@@ -1,10 +1,19 @@
 import { ITeam } from '@/types';
 import Image from 'next/image';
 import React from 'react';
+import {useTeamModal} from "@/hooks/modals";
 
-const TeamCard: React.FC<ITeam> = ({ name, location, image }) => {
+const TeamCard: React.FC<ITeam> = (props) => {
+    const { name, image , location} = props;
+    const {setIsOpen, setTeam} = useTeamModal();
+
+    const handleOpen = () => {
+        setTeam(props);
+        setIsOpen(true);
+    }
+
   return (
-    <div className="min-h-[40rem] w-full relative flex flex-col items-center justify-end group cursor-pointer">
+    <div onClick={handleOpen} className="min-h-[40rem] w-full relative flex flex-col items-center justify-end group cursor-pointer">
       <div className="h-full w-full overflow-hidden relative">
         <Image
           src={image}
