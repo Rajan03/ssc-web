@@ -136,3 +136,15 @@ export async function GetResourcesCategory(): Promise<{
         return {code: 500, message: error.message as string, data: []};
     }
 }
+
+export async function SendContactForm(data: {name: string, email: string, message: string}) {
+    const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    return response.json();
+}

@@ -14,7 +14,6 @@ const navItems = [
   { text: 'About Us', url: '/about' },
   { text: 'Our Team', url: '/team' },
   { text: 'Resources', url: '/resource' },
-  { text: 'Feedback', url: '/feedback' },
   { text: 'Contact', url: '/contact' },
 ];
 
