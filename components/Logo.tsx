@@ -1,10 +1,10 @@
 import Image from 'next/image';
 
-const Logo = ({light}: {light?: boolean}) => {
+const Logo = ({url}: {url: string}) => {
   return (
     <Image
       priority
-      src={light ? '/HLogoWhite.png' : '/HLogo.png'}
+      src={url}
       alt={''}
         width={100}
         height={100}

@@ -1,6 +1,6 @@
 import {groq} from 'next-sanity';
 
-//#region HOME PAGE TYPES
+//#region > HOME PAGE TYPES
 export const GET_HOME_HERO = groq`
 *[_type=="heroHome" && active == true][0] {
   name, 
@@ -153,6 +153,63 @@ export const GET_FEEDBACK_PAGE_BANNER = groq`
     title,
     subtitle,
     "image": image.asset->url,
+}
+`;
+//#endregion
+
+//#region > CONTACT PAGE TYPES
+export const GET_CONTACT_PAGE_BANNER = groq`
+*[_type=="bannerContact" && active == true][0] {
+    title,
+    subtitle,
+    "image": image.asset->url,
+}
+`;
+
+export const GET_CONTACT_PAGE_CONTACT = groq`
+*[_type=="contactInfo" && active == true][0] {
+    location {title, info, subtitle},
+    phone {title, info, subtitle},
+    email {title, info, subtitle},
+}
+`;
+
+//#endregion
+
+//#region > NAVBAR & FOOTER TYPES
+export const GET_NAVBAR = groq`
+*[_type=="webNavbar" && active == true][0] {
+    "logo": image.asset->url,
+    phone,
+    email,
+    tagline,
+    links[] {
+        title,
+        url,
+        icon
+    }
+}
+`;
+
+export const GET_FOOTER = groq`
+*[_type=="webFooter" && active == true][0] {
+    "logo": image.asset->url,
+    copyRight,
+    description,
+    socialLinks[] {
+        title,
+        url,
+        icon
+    },
+    links[] {
+        title,
+        url
+    },
+    developer {
+        title,
+        url,
+        logo
+    }
 }
 `;
 //#endregion

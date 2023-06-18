@@ -1,6 +1,7 @@
 import {IService, ISolution} from '@/types';
 import {ITeam} from '../Team';
 import {IQuestion} from "@/types";
+import {IconType} from "react-icons";
 
 //#region > HOME PAGE TYPES
 export interface SanityHeroHome {
@@ -95,12 +96,12 @@ export interface SanityAboutAbout {
     images: string[];
 }
 
-export interface SanityAboutSolution{
+export interface SanityAboutSolution {
     title: string;
     image: string;
 }
 
-export interface SanityAboutWhoWeAre{
+export interface SanityAboutWhoWeAre {
     title: string;
     description: string;
     subtitle: string;
@@ -130,6 +131,7 @@ export interface IAboutPage {
     whoWeAre: SanityAboutWhoWeAre;
     timeline: SanityAboutTimeline;
 }
+
 //#endregion
 
 //#region > RESOURCES PAGE TYPES
@@ -138,6 +140,7 @@ export interface SanityBannerResources {
     subtitle: string;
     image: string;
 }
+
 //#endregion
 
 //#region > FEEDBACK PAGE TYPES.
@@ -151,3 +154,58 @@ export interface IFeedbackPage {
     banner: SanityBannerFeedback;
     services: IService[];
 }
+
+//#endregion
+
+//#region > CONTACT PAGE TYPES
+export interface SanityBannerContact {
+    title: string;
+    subtitle: string;
+    image: string;
+}
+
+export interface SanityContactInfo {
+    location: ContactCardProps;
+    phone: ContactCardProps;
+    email: ContactCardProps;
+}
+
+export interface ContactCardProps {
+    title: string;
+    subtitle: string;
+    info: string[];
+    Icon?: IconType;
+}
+
+export interface IContactPage {
+    banner: SanityBannerContact;
+    contactInfo: SanityContactInfo;
+}
+
+//#endregion
+
+//#region > NAVBAR/FOOTER TYPES
+export interface SanityNavbar {
+    phone: string;
+    email: string;
+    logo: string;
+    links: SanityNavbarLink[];
+    tagline: string;
+}
+
+export interface SanityNavbarLink {
+    title: string;
+    url: string;
+    icon?: string;
+}
+
+export interface SanityFooter {
+    copyRight: string;
+    description: string;
+    links: SanityNavbarLink[];
+    logo: string;
+    socialLinks: SanityNavbarLink[];
+    developer: SanityNavbarLink;
+}
+
+//#endregion

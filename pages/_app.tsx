@@ -1,4 +1,4 @@
-import {Navbar, ErrorBoundary, Footer} from '@/components';
+import {ErrorBoundary, Footer, Navbar} from '@/components';
 import '@/styles/globals.css';
 import type {AppProps} from 'next/app';
 import {Montserrat} from 'next/font/google';
@@ -47,7 +47,7 @@ export default function App({Component, pageProps}: AppProps) {
 
     return (
         <>
-            <Toaster position={'top-right'} />
+            <Toaster position={'top-right'}/>
             <TeamModal/>
             <ContactModal/>
             <ResourceModal/>
@@ -64,7 +64,7 @@ export default function App({Component, pageProps}: AppProps) {
                 </ErrorBoundary>
 
                 {/* Footer */}
-                <Footer />
+                <Footer/>
             </div>
         </>
     );

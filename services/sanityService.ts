@@ -3,7 +3,7 @@ import {
     GET_ABOUT_PAGE_BANNER,
     GET_ABOUT_PAGE_SOLUTION,
     GET_ABOUT_PAGE_TIMELINE,
-    GET_ABOUT_PAGE_WHO_ARE_WE,
+    GET_ABOUT_PAGE_WHO_ARE_WE, GET_CONTACT_PAGE_BANNER, GET_CONTACT_PAGE_CONTACT,
     GET_FEEDBACK_PAGE_BANNER,
     GET_HOME_ABOUT,
     GET_HOME_CONTACT,
@@ -24,22 +24,21 @@ import {
     SanityQuoteHome,
     SanityServicesHome,
     SanityWhyUsHome,
-    ITeamPage, IResourcesPage, IService,
+    ITeamPage, IResourcesPage,
 } from '@/types';
 import {
-    IAboutPage, IFeedbackPage,
+    IAboutPage, IContactPage, IFeedbackPage,
     SanityAboutAbout,
     SanityAboutSolution,
     SanityAboutTimeline,
-    SanityAboutWhoWeAre,
+    SanityAboutWhoWeAre, SanityBannerContact,
     SanityBannerFeedback,
     SanityBannerResources,
     SanityBannerTeam,
-    SanityContactHome,
+    SanityContactHome, SanityContactInfo,
     SanityFAQTeam,
     SanityTeamsHome
 } from '@/types/sanity';
-import {GetServices} from "@/services/AppService";
 
 // GET CMS DATA FOR HOMEPAGE
 export async function getHomeData(): Promise<IHomePage> {
@@ -91,6 +90,15 @@ export async function getAboutPage(): Promise<IAboutPage> {
 }
 
 // GET CMS DATA FOR CONTACT PAGE
+export async function getContactPage(): Promise<IContactPage> {
+    const banner: SanityBannerContact = await sanityGet(GET_CONTACT_PAGE_BANNER);
+    const contactInfo: SanityContactInfo = await sanityGet(GET_CONTACT_PAGE_CONTACT);
+
+    return {
+        banner,
+        contactInfo,
+    };
+}
 
 // GET CMS DATA FOR RESOURCES PAGE
 export async function getResourcesPage(): Promise<IResourcesPage> {
