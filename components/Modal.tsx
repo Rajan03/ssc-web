@@ -28,7 +28,7 @@ export default function Modal(props: Props) {
                                 enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95">
                                 <Dialog.Panel className={`w-max max-w-max transform overflow-hidden rounded-2xl bg-white
-                                    text-left align-middle shadow-xl transition-all p-6 ${className}`}>
+                                    text-left align-middle shadow-xl transition-all ${className}`}>
                                     {children}
                                 </Dialog.Panel>
                             </Transition.Child>

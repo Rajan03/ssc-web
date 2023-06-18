@@ -56,7 +56,7 @@ export default function ContactModal() {
 
     return (
         <>
-            <Modal isOpen={open} onClose={handleCancel} className={'px-12 py-12'}>
+            <Modal isOpen={open} onClose={handleCancel} className={'p-12'}>
                 {/* MODAL TITLE */}
                 <div className='col-span-2 border-b border-neutral-200 text-dark flex flex-col items-center p-4'>
                     <p className='text-3xl font-bold uppercase'>Drop a mail to {team.name} ?</p>

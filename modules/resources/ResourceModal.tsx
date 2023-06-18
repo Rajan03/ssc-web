@@ -54,7 +54,7 @@ export default function ResourceModal() {
 
     return (
         <>
-            <Modal isOpen={open} onClose={handleCancel}>
+            <Modal isOpen={open} onClose={handleCancel} className={'p-6'}>
                 {/* MODAL TITLE */}
                 <div className='col-span-2 border-b border-neutral-200 text-dark flex flex-col items-start p-4'>
                     <p className='text-3xl font-bold uppercase'>Purchase {resource.title} ?</p>
