@@ -41,6 +41,6 @@ const POST = async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(200).json({message: 'Success', status: 200})
     } catch (error) {
         console.error(error)
-        return res.status(500).json({error, message: 'Internal Server Error', status: 200})
+        return res.status(500).json({error, message: 'Internal Server Error', status: 500})
     }
 }
