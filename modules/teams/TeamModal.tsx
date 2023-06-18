@@ -23,20 +23,20 @@ export default function TeamModal() {
 
     return (
         <>
-            <Modal isOpen={open} onClose={handleCancel}>
-                <div className="grid grid-cols-1 md:grid-cols-[60%,_40%] max-w-[35rem] md:max-w-[55rem]">
+            <Modal isOpen={open} onClose={handleCancel} className={'relative max-h-[70rem] overflow-y-auto scrollbar-hide p-0'}>
+                <div className="grid grid-cols-[60%,_40%] max-w-[32rem] vsm:max-w-[40rem] md:max-w-[55rem]">
                     {team.image && (<div className="col-span-2 relative h-[25rem] rounded-t-2xl w-full">
                         <Image src={team.image} alt={'modal image'} fill
                                className={'rounded-[inherit] object-cover object-top'}/>
                     </div>)}
 
                     {/* MODAL TITLE */}
-                    <div className='col-span-2 border-b border-neutral-200 text-dark flex flex-col items-center p-4'>
+                    <div className='col-span-2 border-b border-neutral-200 text-dark flex flex-col items-center p-6'>
                         <p className='text-3xl font-bold uppercase'>{team.name}</p>
                         <p className='text-lg font-normal capitalize'>{team.position}</p>
                         <div className='flex flex-row justify-center items-center space-x-4 mt-3'>
                             {team.skills?.map((skill, index) => (
-                                <p key={index} className='text-lg font-medium text-dark bg-primary-600/20 px-3 rounded-full'>
+                                <p key={index} className='text-lg font-medium text-dark bg-primary-600/20 px-3 py-1 rounded-full truncate'>
                                     {skill.name}
                                 </p>
                             ))}
@@ -44,7 +44,7 @@ export default function TeamModal() {
                     </div>
 
                     {/* LEFT */}
-                    <div className="flex flex-col justify-start items-stretch gap-y-8 p-4">
+                    <div className="col-span-2 md:col-span-1 flex flex-col justify-start items-stretch gap-y-8 p-6 md:pr-2">
                         {/* MODAL CONTACT */}
                         <div className='flex flex-col justify-start items-start'>
                             <p className='text-lg font-bold text-dark'>Contact</p>
@@ -76,7 +76,7 @@ export default function TeamModal() {
                     </div>
 
                     {/* RIGHT */}
-                    <div className="flex flex-col justify-start items-stretch pl-4 pt-4">
+                    <div className="col-span-2 md:col-span-1 flex flex-col justify-start items-stretch p-6 md:pl-2">
                         {/* MODAL EXPERIENCE */}
                         <div className='flex flex-col justify-start items-start'>
                             <p className='text-lg font-bold text-dark'>Experience</p>
@@ -97,12 +97,12 @@ export default function TeamModal() {
                                 : <p className='text-lg font-normal text-dark'>No experience</p>}
                         </div>
                     </div>
+                </div>
 
-                    {/* Action */}
-                    <div className='col-span-2 flex flex-row justify-end items-center p-4'>
-                        <Button onClick={getInTouch} text={'Get In touch'}
-                                size={'medium'} Icon={MdEmail} iconPosition={'left'} />
-                    </div>
+                {/* Action */}
+                <div className='sticky bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex flex-row justify-end items-center p-6'>
+                    <Button onClick={getInTouch} text={'Get In touch'}
+                            size={'medium'} Icon={MdEmail} iconPosition={'left'} />
                 </div>
             </Modal>
         </>

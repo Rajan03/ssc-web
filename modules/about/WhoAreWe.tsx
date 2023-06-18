@@ -30,7 +30,7 @@ const WhoAreWe: React.FC<SanityAboutWhoWeAre> = ({title, subtitle, description, 
             </div>
 
             {/* Image */}
-            <div className={'flex-1 relative self-stretch'}>
+            <div className={'flex-1 relative self-stretch min-h-[40rem]'}>
                 <Image className="object-cover" loading="lazy" fill alt="" src={image}/>
             </div>
         </div>

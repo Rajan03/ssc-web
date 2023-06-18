@@ -9,7 +9,7 @@ const QuesCard: React.FC<IQuestion> = ({question, answer}) => {
 
     const expandBtnClass = clsx('text-neutral-500 h-10 w-10 p-2 rounded-full hover:bg-neutral-200 cursor-pointer');
     const expandClass = clsx('overflow-hidden transition-all duration-500 shadow rounded p-10' + (isExpanded
-        ? ' max-h-[150px] h-[150px]' : ' max-h-[75px] h-[75px]'));
+        ? ' max-h-max min-h-[150px]' : ' max-h-[75px] min-h-[75px]'));
     const toggleAnswer = () => {
         setIsExpanded(ps => !ps);
     }
@@ -27,7 +27,7 @@ const QuesCard: React.FC<IQuestion> = ({question, answer}) => {
                     : <FaChevronDown className={expandBtnClass} onClick={toggleAnswer}/>}
             </div>
 
-            {isExpanded && <div className={'mt-4 text-xl text-neutral-500'}>{answer}</div>}
+            <div className={'mt-4 text-xl text-neutral-500 transition-all duration-500 ' + (isExpanded ? 'opacity-100' : 'opacity-0')}>{answer}</div>
         </div>
     )
 }

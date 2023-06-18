@@ -9,6 +9,7 @@ import {TeamModal} from "@/modules/teams";
 import {ContactModal} from "@/modules/contact";
 import {ResourceModal} from "@/modules/resources";
 import {Toaster} from "react-hot-toast";
+import {useNavState} from "@/hooks/navState";
 
 // Font import
 const font = Montserrat({
@@ -22,12 +23,14 @@ const Loading = () => <div
 export default function App({Component, pageProps}: AppProps) {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
+    const {setIsOpen} = useNavState();
 
     useEffect(() => {
         const handleStart = () => {
             setIsLoading(true);
         }
         const handleComplete = () => {
+            setIsOpen(false);
             setIsLoading(false);
         }
 

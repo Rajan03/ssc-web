@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { IconType } from 'react-icons';
 import { CgMenuRight } from 'react-icons/cg';
 import { FaBell } from 'react-icons/fa';
@@ -9,10 +9,11 @@ import { IoIosRemoveCircleOutline, IoMdCall } from 'react-icons/io';
 import { MdEmail } from 'react-icons/md';
 import Logo from './Logo';
 import {navItems} from "@/utils/constant";
+import {useNavState} from "@/hooks/navState";
 
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const {isOpen, setIsOpen} = useNavState();
   const router = useRouter();
 
   // NAV MENU ICON CLASSES
@@ -33,7 +34,7 @@ const Navbar = () => {
     isOpen ? 'h-96 ' : 'h-0 ',
     'absolute top-[100%] flex flex-col items-start justify-evenly gap-y-12 ',
     'sm:hidden transition-[height] duration-300 ease-in-out overflow-hidden',
-    'w-full bg-white shadow-lg shadow-gray-200/80 rounded-b'
+    'w-full bg-white rounded-b pb-6'
   );
 
   return (
