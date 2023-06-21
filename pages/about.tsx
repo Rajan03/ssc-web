@@ -1,6 +1,6 @@
 import {PageBanner} from "@/components";
 import {About as AboutHome} from '@/modules/home'
-import {HistorySection, ImplementSolution, WhoAreWe} from "@/modules/about";
+import {ImplementSolution, ServicesSection, WhoAreWe} from "@/modules/about";
 import Head from "next/head";
 import React from "react";
 import {GetStaticProps} from "next";
@@ -10,6 +10,7 @@ import {getAboutPage} from "@/services/sanityService";
 interface Props {
     data: IAboutPage;
 }
+
 const About: React.FC<Props> = ({data}) => {
     const {banner, about, timeline, solution, whoWeAre} = data;
     return (<>
@@ -31,7 +32,7 @@ const About: React.FC<Props> = ({data}) => {
                 <WhoAreWe {...whoWeAre} />
 
                 {/* Company History section */}
-                <HistorySection {...timeline} />
+                <ServicesSection {...timeline} />
             </main>
         </>
     );

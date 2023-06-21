@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 import { IconType } from 'react-icons';
+import Link from "next/link";
 
 type ButtonProps = {
   text?: string;
-  onClick: (_e?: any) => void;
+  onClick?: (_e?: any) => void;
 
   type?: 'button' | 'submit' | 'reset'; // default button
   theme?: 'primary' | 'secondary' | 'neutral'; // default primary
@@ -16,6 +17,7 @@ type ButtonProps = {
   iconPosition?: 'left' | 'right'; // default left
   className?: string;
   iconClassName?: string;
+  link?: string;
 };
 
 const Button: React.FC<ButtonProps> = (props) => {
@@ -66,6 +68,24 @@ const Button: React.FC<ButtonProps> = (props) => {
 
     className
   );
+
+  if (props.link) {
+    return (
+      <Link
+        href={props.link}
+        className={btnClass + ' group'}
+      >
+        {Icon && iconPosition === 'left' && (
+            <Icon className={iconClassName ? ' ' + iconClassName : 'h-6 w-8'} />
+        )}
+
+        {text && <span>{text}</span>}
+        {Icon && iconPosition === 'right' && (
+            <Icon className={iconClassName ? ' ' + iconClassName : 'h-6 w-8'} />
+        )}
+      </Link>
+    );
+  }
 
   return (
     <>

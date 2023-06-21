@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import React from "react";
+import Link from "next/link";
 
 interface AnimatedBtnProps {
     text: string;
@@ -10,9 +11,11 @@ interface AnimatedBtnProps {
     type?: "button" | "submit" | "reset";
     disabled?: boolean;
     loading?: boolean;
+    link?: string;
 }
 
 const AnimatedBtn: React.FC<AnimatedBtnProps> = ({
+    link,
                                                      text,
                                                      className,
                                                      theme = "bg-black",
@@ -34,10 +37,24 @@ const AnimatedBtn: React.FC<AnimatedBtnProps> = ({
         + hoverTheme
     )
 
-    const textCls = clsx("font-medium z-10 w-full text-white group-hover:text-white")
+    const textCls = clsx("font-medium z-10 w-full text-center text-white group-hover:text-white")
+
+
+    if (link) {
+        return (
+            <Link href={link} rel="noopener noreferrer" className={cls + " group"}>
+                <span className={hoverCls + " group-hover:w-[30rem] group-hover:h-[30rem]"}/>
+                {!loading && <span className={textCls}>{text}</span>}
+
+                {/*Loading Spinner*/}
+                {loading && <span className="w-6 h-6 border-2 border-white rounded-full animate-spin"/>}
+            </Link>
+        );
+    }
+
     return (
         <button disabled={disabled} type={type} className={cls + " group"} onClick={onClick}>
-            <span className={hoverCls + " group-hover:w-[30rem] group-hover:h-[30rem]"}/>
+            <span className={hoverCls + " group-hover:w-[90rem] group-hover:h-[90rem]"}/>
             {!loading && <span className={textCls}>{text}</span>}
 
             {/*Loading Spinner*/}
