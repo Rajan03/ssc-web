@@ -120,13 +120,22 @@ export const getStaticProps = async (context: any) => {
     // @ts-ignore
     const {id} = context.params;
     const res = await fetch(`${process.env.NEXY_PUBLIC_BASE_URL}/service/${id}`);
-    const serRes = await fetch(`${process.env.NEXY_PUBLIC_BASE_URL}/service`);
-    const services = await serRes.json();
     const service = await res.json();
 
     return {
         props: {
-            service: JSON.parse(JSON.stringify(service.data)),
+            service: JSON.parse(JSON.stringify(service.data))
+        }
+    }
+}
+
+// Get Server Side Props
+export const getServerSideProps = async () => {
+    const serRes = await fetch(`${process.env.NEXY_PUBLIC_BASE_URL}/service`);
+    const services = await serRes.json();
+
+    return {
+        props: {
             services: JSON.parse(JSON.stringify(services.data))
         }
     }
