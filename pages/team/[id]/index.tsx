@@ -118,7 +118,7 @@ export default function TeamMember({team}: TeamMemberProps) {
 
 // Get Static Paths
 export const getStaticPaths = async () => {
-    const res = await fetch(`${process.env.NEXY_PUBLIC_BASE_URL}/coaches`);
+    const res = await fetch(`${process.env.NEXY_PUBLIC_BASE_URL}/coach`);
     const coaches = await res.json();
 
     const paths = coaches.map((coach: ITeam) => ({
