@@ -1,4 +1,4 @@
-import {PageBanner, SectionHeader, ServiceCard} from "@/components";
+import {PageBanner, ServiceCard} from "@/components";
 import Head from "next/head";
 import React from "react";
 import {getServicesPage} from "@/services/sanityService";
