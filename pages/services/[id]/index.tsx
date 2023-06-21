@@ -5,6 +5,7 @@ import Image from "next/image";
 import {BsCheck2All} from "react-icons/bs";
 import Link from "next/link";
 import {AnimatedBtn} from "@/components";
+import {GetServices} from "@/services/AppService";
 
 interface ServicePageProps {
     service: IService;
@@ -105,9 +106,7 @@ export default function ServicePage({service, services}: ServicePageProps) {
 
 // Get Static Props
 export const getStaticPaths = async () => {
-    const res = await fetch(`${process.env.NEXY_PUBLIC_BASE_URL}/service`);
-    const services = await res.json();
-
+    const services = await GetServices(false);
     const paths = services.data.map((service: IService) => ({
         params: {id: service._id.toString()}
     }))
@@ -125,18 +124,6 @@ export const getStaticProps = async (context: any) => {
     return {
         props: {
             service: JSON.parse(JSON.stringify(service.data))
-        }
-    }
-}
-
-// Get Server Side Props
-export const getServerSideProps = async () => {
-    const serRes = await fetch(`${process.env.NEXY_PUBLIC_BASE_URL}/service`);
-    const services = await serRes.json();
-
-    return {
-        props: {
-            services: JSON.parse(JSON.stringify(services.data))
         }
     }
 }

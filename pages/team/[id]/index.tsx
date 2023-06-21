@@ -6,6 +6,7 @@ import {GetStaticProps} from "next";
 import {ITeam} from "@/types";
 import {useContactModal} from "@/hooks/modals";
 import Head from "next/head";
+import {GetCoachesData} from "@/services/AppService";
 
 interface TeamMemberProps {
     team: ITeam
@@ -118,10 +119,9 @@ export default function TeamMember({team}: TeamMemberProps) {
 
 // Get Static Paths
 export const getStaticPaths = async () => {
-    const res = await fetch(`${process.env.NEXY_PUBLIC_BASE_URL}/coach`);
-    const coaches = await res.json();
+    const coaches = await GetCoachesData(false);
 
-    const paths = coaches.map((coach: ITeam) => ({
+    const paths = coaches.data.map((coach: ITeam) => ({
         params: {id: coach._id.toString()}
     }));
 
