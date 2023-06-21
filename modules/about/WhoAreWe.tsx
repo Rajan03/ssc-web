@@ -26,7 +26,7 @@ const WhoAreWe: React.FC<SanityAboutWhoWeAre> = ({title, subtitle, description, 
                     <span className="text-xl font-medium text-dark">{countText}</span>
                 </div>
 
-                <AnimatedBtn text="Discover More" className={"mt-12"}/>
+                <AnimatedBtn text="Discover More" link={'/contact'} className={"mt-12"}/>
             </div>
 
             {/* Image */}

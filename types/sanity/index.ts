@@ -113,7 +113,7 @@ export interface SanityAboutWhoWeAre {
 export interface SanityAboutTimeline {
     title: string;
     subtitle: string;
-    timeline: ITimeLine[];
+    services: IService[];
 }
 
 export interface ITimeLine {
@@ -150,9 +150,16 @@ export interface SanityBannerFeedback {
     image: string;
 }
 
+export interface SanityFeedbackSectionHeader {
+    title: string;
+    subtitle: string;
+    description: string;
+}
+
 export interface IFeedbackPage {
     banner: SanityBannerFeedback;
     services: IService[];
+    sectionHeader: SanityFeedbackSectionHeader;
 }
 
 //#endregion
@@ -183,6 +190,18 @@ export interface IContactPage {
 }
 
 //#endregion
+
+//#region > SERVICES PAGE TYPES
+export interface SanityBannerServices {
+    title: string;
+    subtitle: string;
+    image: string;
+}
+
+export interface IServicesPage {
+    banner: SanityBannerServices;
+    services: IService[];
+}
 
 //#region > NAVBAR/FOOTER TYPES
 export interface SanityNavbar {

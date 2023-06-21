@@ -82,6 +82,7 @@ const POST = async (req: NextApiRequest, res: NextApiResponse) => {
       data,
     });
   } catch (error: any) {
+    console.log(error)
     res.status(500).json({ message: error.message });
   }
 };

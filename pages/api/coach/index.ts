@@ -3,7 +3,6 @@ import Team from '@/models/Team';
 import { ITeam } from '@/types';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-/// Remains Same
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse

@@ -14,6 +14,7 @@ import {
     SanityServicesHome,
     SanityWhyUsHome,
 } from './sanity';
+import {IndividualFormSchema, IManagerFormSchema, ITeamFormSchema} from './feedback';
 
 export type {
     SanityHeroHome,
@@ -38,5 +39,7 @@ export type {
     IResourcesPage,
     IResource,
     IResourceCategory,
-    IResourceReview
+    IResourceReview,
+    IndividualFormSchema,
+    IManagerFormSchema, ITeamFormSchema
 };
