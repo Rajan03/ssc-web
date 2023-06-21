@@ -4,7 +4,7 @@ import {
     GET_ABOUT_PAGE_SOLUTION,
     GET_ABOUT_PAGE_TIMELINE,
     GET_ABOUT_PAGE_WHO_ARE_WE, GET_CONTACT_PAGE_BANNER, GET_CONTACT_PAGE_CONTACT,
-    GET_FEEDBACK_PAGE_BANNER,
+    GET_FEEDBACK_PAGE_BANNER, GET_FEEDBACK_SECTION_HEADER,
     GET_HOME_ABOUT,
     GET_HOME_CONTACT,
     GET_HOME_HERO,
@@ -12,7 +12,7 @@ import {
     GET_HOME_SERVICES,
     GET_HOME_TEAMS,
     GET_HOME_WHY_US,
-    GET_RESOURCES_PAGE_BANNER,
+    GET_RESOURCES_PAGE_BANNER, GET_SERVICES_PAGE_BANNER,
     GET_TEAM_PAGE_BANNER,
     GET_TEAM_PAGE_FAQS,
 } from '@/lib/sanityQueries';
@@ -27,18 +27,19 @@ import {
     ITeamPage, IResourcesPage,
 } from '@/types';
 import {
-    IAboutPage, IContactPage, IFeedbackPage,
+    IAboutPage, IContactPage, IFeedbackPage, IServicesPage,
     SanityAboutAbout,
     SanityAboutSolution,
     SanityAboutTimeline,
     SanityAboutWhoWeAre, SanityBannerContact,
     SanityBannerFeedback,
-    SanityBannerResources,
+    SanityBannerResources, SanityBannerServices,
     SanityBannerTeam,
     SanityContactHome, SanityContactInfo,
-    SanityFAQTeam,
+    SanityFAQTeam, SanityFeedbackSectionHeader,
     SanityTeamsHome
 } from '@/types/sanity';
+import {GetServices} from "@/services/AppService";
 
 // GET CMS DATA FOR HOMEPAGE
 export async function getHomeData(): Promise<IHomePage> {
@@ -79,6 +80,8 @@ export async function getAboutPage(): Promise<IAboutPage> {
     const solution: SanityAboutSolution = await sanityGet(GET_ABOUT_PAGE_SOLUTION);
     const whoWeAre: SanityAboutWhoWeAre = await sanityGet(GET_ABOUT_PAGE_WHO_ARE_WE);
     const timeline: SanityAboutTimeline = await sanityGet(GET_ABOUT_PAGE_TIMELINE);
+    const services = await GetServices();
+    timeline.services = JSON.parse(JSON.stringify(services.data));
 
     return {
         banner,
@@ -113,9 +116,22 @@ export async function getResourcesPage(): Promise<IResourcesPage> {
 // GET CMS DATA FOR FEEDBACK PAGE
 export async function getFeedbackPage(): Promise<IFeedbackPage> {
     const banner: SanityBannerFeedback = await sanityGet(GET_FEEDBACK_PAGE_BANNER);
+    const sectionHeader: SanityFeedbackSectionHeader = await sanityGet(GET_FEEDBACK_SECTION_HEADER);
 
     return {
         banner,
         services: [],
+        sectionHeader,
+    };
+}
+
+// GET CMS DATA FOR SERVICES PAGE
+export async function getServicesPage(): Promise<IServicesPage> {
+    const banner: SanityBannerServices = await sanityGet(GET_SERVICES_PAGE_BANNER)
+    const services = await GetServices();
+
+    return {
+        banner,
+        services: JSON.parse(JSON.stringify(services.data)),
     };
 }

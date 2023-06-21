@@ -2,11 +2,12 @@ import { IService } from '@/types';
 import Image from 'next/image';
 import { HiExternalLink } from 'react-icons/hi';
 import Button from './Button';
+import Link from "next/link";
 
 const ServiceCard = (props: IService) => {
   return (
     <>
-      <div className="relative w-full h-full min-h-[48rem] overflow-hidden rounded flex flex-col justify-end group">
+      <Link href={'/services/' + props._id} className="relative w-full h-full min-h-[48rem] overflow-hidden rounded flex flex-col justify-end group">
         <Image
           src={props.image}
           fill
@@ -14,7 +15,7 @@ const ServiceCard = (props: IService) => {
           className="object-right object-cover absolute inset-0 z-[0] cursor-pointer peer"
         />
         <div
-          className="absolute h-full w-full -bottom-[100%] bg-black bg-opacity-40 cursor-pointer z-[0] transition-all duration-500 ease-in-out 
+          className="absolute h-full w-full -bottom-[100%] bg-black bg-opacity-40 cursor-pointer z-[0] transition-all duration-500 ease-in-out
         group-hover:bottom-0 hover:bottom-0"
         />
 
@@ -38,7 +39,7 @@ const ServiceCard = (props: IService) => {
             className="absolute top-[-16px] right-8 z-[3] group-hover:animate-bounce"
           />
         </div>
-      </div>
+      </Link>
     </>
   );
 };

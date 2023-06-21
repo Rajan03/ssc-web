@@ -13,7 +13,8 @@ const ImplementSolution: React.FC<SanityAboutSolution> = ({title, image}) => {
             <p className="relative mt-4 mx-auto text-7xl md:text-9xl text-center font-bold text-white">
                 {title}
             </p>
-            <AnimatedBtn text="Discover" theme={"bg-primary-600"} hoverTheme={"bg-black"} className={"mt-12"}/>
+            <AnimatedBtn text="Expert Team" link={'/coach'} theme={"bg-primary-600"} hoverTheme={"bg-black"}
+                         className={"mt-12"}/>
         </div>
     )
 }

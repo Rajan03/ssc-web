@@ -1,6 +1,7 @@
 export interface IService {
   _id: string;
   title: string;
+  shortTag: string;
   description: string;
   shortDescription: string;
   image: string;

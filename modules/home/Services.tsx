@@ -25,9 +25,8 @@ const Services: React.FC<Props> = ({ title, subtitle, services }) => {
             className="absolute right-0 text-secondary text-3xl hidden md:flex"
             size="large"
             onlyText
-            onClick={() => {}}
+            link={'/services'}
           />
-          {/* TODO: Add href to services page */}
         </div>
 
         {/* Services */}

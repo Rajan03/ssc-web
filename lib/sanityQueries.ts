@@ -155,6 +155,14 @@ export const GET_FEEDBACK_PAGE_BANNER = groq`
     "image": image.asset->url,
 }
 `;
+
+export const GET_FEEDBACK_SECTION_HEADER = groq`
+*[_type=="feedbackHeaders" && active == true][0] {
+    title,
+    subtitle,
+    description,
+}
+`;
 //#endregion
 
 //#region > CONTACT PAGE TYPES
@@ -210,6 +218,16 @@ export const GET_FOOTER = groq`
         url,
         logo
     }
+}
+`;
+//#endregion
+
+//#region > SERVICES PAGE TYPES
+export const GET_SERVICES_PAGE_BANNER = groq`
+*[_type=="bannerServices" && active == true][0] {
+    title,
+    subtitle,
+    "image": image.asset->url,
 }
 `;
 //#endregion
