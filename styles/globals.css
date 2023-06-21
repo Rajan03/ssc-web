@@ -40,6 +40,16 @@
             height: var(--navbar-height);
         }
     }
+
+    .top-from-nav {
+        top: calc(var(--navbar-height-mob) + 3rem);
+    }
+
+    @media (min-width: 640px) {
+        .top-from-nav {
+            top: calc(var(--navbar-height) + 3rem);
+        }
+    }
 }
 @layer base {
     .container {
@@ -98,11 +108,23 @@ body,
 }
 
 .web-input:hover {
-    @apply bg-neutral-200
+    @apply bg-transparent
 }
 
 .web-input:focus {
-    @apply ring-offset-2 ring-offset-neutral-100 outline-none ring-primary-400 ring-2
+    @apply ring-offset-1 ring-offset-neutral-100 outline-none ring-primary-400 ring-1
+}
+
+.web-input-error {
+    @apply bg-neutral-100 rounded p-6 outline-none transition-all duration-300
+}
+
+.web-input-error:hover {
+    @apply bg-transparent
+}
+
+.web-input-error:focus {
+    @apply ring-offset-1 ring-offset-neutral-100 outline-none ring-red-400 ring-1
 }
 
 @keyframes fadeIn {

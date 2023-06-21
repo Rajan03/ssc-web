@@ -22,8 +22,7 @@ export async function GetServices(forHome?: boolean): Promise<{
         // Return Data
         return {
             code: 200,
-            message:
-                data?.length > 0 ? data.length + ' Services Found' : 'No Data Found',
+            message: data?.length > 0 ? data.length + ' Services Found' : 'No Data Found',
             data,
         };
     } catch (error: any) {
