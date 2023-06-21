@@ -130,7 +130,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     return {
         props: {
-            team: team.coach
+            team: JSON.parse(JSON.stringify(team.coach))
         }
     }
 }

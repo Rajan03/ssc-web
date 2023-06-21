@@ -113,8 +113,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     return {
         props: {
-            service: service.data,
-            services: services.data
+            service: JSON.parse(JSON.stringify(service.data)),
+            services: JSON.parse(JSON.stringify(services.data))
         }
     }
 }
