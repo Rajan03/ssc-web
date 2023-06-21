@@ -60,6 +60,7 @@ const Home: React.FC<Props> = ({ data }) => {
 };
 export default Home;
 
+
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const res = await getHomeData();
   const solutions = await GetSolutionsForHome();

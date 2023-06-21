@@ -2,7 +2,7 @@ import Image from "next/image";
 import {MdCall, MdEmail} from "react-icons/md";
 import {AnimatedBtn} from "@/components";
 import React from "react";
-import {GetServerSideProps} from "next";
+import {GetStaticProps} from "next";
 import {ITeam} from "@/types";
 import {useContactModal} from "@/hooks/modals";
 import Head from "next/head";
@@ -116,7 +116,24 @@ export default function TeamMember({team}: TeamMemberProps) {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+// Get Static Paths
+export const getStaticPaths = async () => {
+    const res = await fetch(`${process.env.NEXY_PUBLIC_BASE_URL}/coaches`);
+    const coaches = await res.json();
+
+    const paths = coaches.map((coach: ITeam) => ({
+        params: {id: coach._id.toString()}
+    }));
+
+    return {
+        paths,
+        fallback: true
+    }
+}
+
+
+// Get Static Props
+export const getStaticProps: GetStaticProps = async (context) => {
     // @ts-ignore
     const {id} = context.params;
     const res = await fetch(`${process.env.NEXY_PUBLIC_BASE_URL}/coach/${id}`);
@@ -134,3 +151,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
     }
 }
+

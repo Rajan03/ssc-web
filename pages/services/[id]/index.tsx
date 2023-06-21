@@ -1,4 +1,3 @@
-import {GetServerSideProps} from "next";
 import {IService} from "@/types";
 import Head from "next/head";
 import React from "react";
@@ -103,7 +102,21 @@ export default function ServicePage({service, services}: ServicePageProps) {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+
+// Get Static Props
+export const getStaticPaths = async () => {
+    const res = await fetch(`${process.env.NEXY_PUBLIC_BASE_URL}/service`);
+    const services = await res.json();
+
+    const paths = services.data.map((service: IService) => ({
+        params: {id: service._id.toString()}
+    }))
+
+    return {paths, fallback: false}
+}
+
+// Get Static Props
+export const getStaticProps = async (context: any) => {
     // @ts-ignore
     const {id} = context.params;
     const res = await fetch(`${process.env.NEXY_PUBLIC_BASE_URL}/service/${id}`);
