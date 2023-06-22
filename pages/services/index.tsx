@@ -37,5 +37,6 @@ export async function getStaticProps() {
         props: {
             data: servicePage,
         },
+        revalidate: 30,
     };
 }

@@ -148,3 +148,53 @@ export async function sendContactForm(data: {name: string, email: string, messag
     })
     return response.json();
 }
+
+export async function GetCoach(id: string): Promise<{
+    message: string;
+    code: number;
+    data: ITeam | null;
+}> {
+    try {
+        // Database Connection
+        await connectDB();
+
+        // Database Data Fetch
+        const team = await Team.findById<ITeam>(id);
+
+        if (!team) return {code: 404, message: 'Team member not found', data: null};
+
+        // Return Data
+        return {
+            code: 200,
+            message:' Team members found',
+            data: team,
+        };
+    } catch (error: any) {
+        return {code: 500, message: error.message as string, data: null};
+    }
+}
+
+export async function GetService(id: string): Promise<{
+    message: string;
+    code: number;
+    data: IService | null;
+}> {
+    try {
+        // Database Connection
+        await connectDB();
+
+        // Database Data
+        const data = await Service.findById<IService>(id);
+
+        if (!data) return {code: 404, message: 'Service not found', data: null};
+
+        // Return Data
+        return {
+            code: 200,
+            message: 'Services Found',
+            data,
+        };
+    } catch (error: any) {
+        return {code: 500, message: error.message as string, data: null};
+    }
+}

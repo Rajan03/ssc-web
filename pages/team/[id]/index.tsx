@@ -2,11 +2,11 @@ import Image from "next/image";
 import {MdCall, MdEmail} from "react-icons/md";
 import {AnimatedBtn} from "@/components";
 import React from "react";
-import {GetStaticProps} from "next";
+import {GetServerSideProps, GetStaticProps} from "next";
 import {ITeam} from "@/types";
 import {useContactModal} from "@/hooks/modals";
 import Head from "next/head";
-import {GetCoachesData} from "@/services/AppService";
+import {GetCoach, GetCoachesData} from "@/services/AppService";
 
 interface TeamMemberProps {
     team: ITeam
@@ -23,7 +23,7 @@ export default function TeamMember({team}: TeamMemberProps) {
     return (
         <>
             <Head>
-                <title>SSC | {team.name}</title>
+                <title>SSC | Coach</title>
             </Head>
             <main className="container mx-auto grid grid-rows-[1fr,_2fr_,2fr,_1fr] grid-cols-1
             lg:grid-cols-[50%,_50%] gap-x-12 p-for-nav mt-8">
@@ -117,29 +117,14 @@ export default function TeamMember({team}: TeamMemberProps) {
     )
 }
 
-// Get Static Paths
-export const getStaticPaths = async () => {
-    const coaches = await GetCoachesData(false);
-
-    const paths = coaches.data.map((coach: ITeam) => ({
-        params: {id: coach._id.toString()}
-    }));
-
-    return {
-        paths,
-        fallback: true
-    }
-}
-
-
-// Get Static Props
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
     // @ts-ignore
     const {id} = context.params;
-    const res = await fetch(`${process.env.NEXY_PUBLIC_BASE_URL}/coach/${id}`);
-    const team = await res.json();
+    console.log('>>>>>>>>>> ID: ', id)
+    const team = await GetCoach(id);
 
-    if (!team || (!!team && !team.coach)) {
+    console.log('>>>>>>>>>> TEAM PAGE: ', team)
+    if (team.code !== 200) {
         return {
             notFound: true
         }
@@ -147,7 +132,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     return {
         props: {
-            team: JSON.parse(JSON.stringify(team.coach))
+            team: JSON.parse(JSON.stringify(team.data))
         }
     }
 }
