@@ -2,11 +2,11 @@ import Image from "next/image";
 import {MdCall, MdEmail} from "react-icons/md";
 import {AnimatedBtn} from "@/components";
 import React from "react";
-import {GetServerSideProps, GetStaticProps} from "next";
+import {GetServerSideProps} from "next";
 import {ITeam} from "@/types";
 import {useContactModal} from "@/hooks/modals";
 import Head from "next/head";
-import {GetCoach, GetCoachesData} from "@/services/AppService";
+import {GetCoach} from "@/services/AppService";
 
 interface TeamMemberProps {
     team: ITeam
