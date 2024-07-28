@@ -3,6 +3,7 @@ import {IService, Section} from './Service';
 import {ISolution} from './Solution';
 import {ITeamPage, ITeam, ISkill, IExperience} from './Team';
 import {IQuestion} from './Question';
+import {IResourcesPage, IResourceCategory, IResource, IResourceReview} from './resources';
 import {
     IHomePage,
     IAboutPage,
@@ -13,6 +14,7 @@ import {
     SanityServicesHome,
     SanityWhyUsHome,
 } from './sanity';
+import {IndividualFormSchema, IManagerFormSchema, ITeamFormSchema} from './feedback';
 
 export type {
     SanityHeroHome,
@@ -33,5 +35,11 @@ export type {
     ISkill,
     IExperience,
     IQuestion,
-    IAboutPage
+    IAboutPage,
+    IResourcesPage,
+    IResource,
+    IResourceCategory,
+    IResourceReview,
+    IndividualFormSchema,
+    IManagerFormSchema, ITeamFormSchema
 };

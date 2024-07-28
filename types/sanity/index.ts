@@ -1,6 +1,7 @@
 import {IService, ISolution} from '@/types';
 import {ITeam} from '../Team';
 import {IQuestion} from "@/types";
+import {IconType} from "react-icons";
 
 //#region > HOME PAGE TYPES
 export interface SanityHeroHome {
@@ -95,12 +96,12 @@ export interface SanityAboutAbout {
     images: string[];
 }
 
-export interface SanityAboutSolution{
+export interface SanityAboutSolution {
     title: string;
     image: string;
 }
 
-export interface SanityAboutWhoWeAre{
+export interface SanityAboutWhoWeAre {
     title: string;
     description: string;
     subtitle: string;
@@ -112,7 +113,7 @@ export interface SanityAboutWhoWeAre{
 export interface SanityAboutTimeline {
     title: string;
     subtitle: string;
-    timeline: ITimeLine[];
+    services: IService[];
 }
 
 export interface ITimeLine {
@@ -130,4 +131,100 @@ export interface IAboutPage {
     whoWeAre: SanityAboutWhoWeAre;
     timeline: SanityAboutTimeline;
 }
+
+//#endregion
+
+//#region > RESOURCES PAGE TYPES
+export interface SanityBannerResources {
+    title: string;
+    subtitle: string;
+    image: string;
+}
+
+//#endregion
+
+//#region > FEEDBACK PAGE TYPES.
+export interface SanityBannerFeedback {
+    title: string;
+    subtitle: string;
+    image: string;
+}
+
+export interface SanityFeedbackSectionHeader {
+    title: string;
+    subtitle: string;
+    description: string;
+}
+
+export interface IFeedbackPage {
+    banner: SanityBannerFeedback;
+    services: IService[];
+    sectionHeader: SanityFeedbackSectionHeader;
+}
+
+//#endregion
+
+//#region > CONTACT PAGE TYPES
+export interface SanityBannerContact {
+    title: string;
+    subtitle: string;
+    image: string;
+}
+
+export interface SanityContactInfo {
+    location: ContactCardProps;
+    phone: ContactCardProps;
+    email: ContactCardProps;
+}
+
+export interface ContactCardProps {
+    title: string;
+    subtitle: string;
+    info: string[];
+    Icon?: IconType;
+}
+
+export interface IContactPage {
+    banner: SanityBannerContact;
+    contactInfo: SanityContactInfo;
+}
+
+//#endregion
+
+//#region > SERVICES PAGE TYPES
+export interface SanityBannerServices {
+    title: string;
+    subtitle: string;
+    image: string;
+}
+
+export interface IServicesPage {
+    banner: SanityBannerServices;
+    services: IService[];
+}
+
+//#region > NAVBAR/FOOTER TYPES
+export interface SanityNavbar {
+    phone: string;
+    email: string;
+    logo: string;
+    links: SanityNavbarLink[];
+    tagline: string;
+}
+
+export interface SanityNavbarLink {
+    title: string;
+    url: string;
+    icon?: string;
+}
+
+export interface SanityFooter {
+    copyRight: string;
+    description: string;
+    links: SanityNavbarLink[];
+    logo: string;
+    socialLinks: SanityNavbarLink[];
+    developer: SanityNavbarLink;
+}
+
 //#endregion

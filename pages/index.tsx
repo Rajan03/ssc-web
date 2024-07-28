@@ -9,9 +9,9 @@ import {
 } from '@/modules/home';
 import {
   GetCoachesData,
-  GetServicesForHome,
+  GetServices,
   GetSolutionsForHome,
-} from '@/services/HomePageService';
+} from '@/services/AppService';
 import { getHomeData } from '@/services/sanityService';
 import { IHomePage } from '@/types';
 import { GetStaticProps } from 'next';
@@ -33,7 +33,7 @@ const Home: React.FC<Props> = ({ data }) => {
         <title>SSC | Home</title>
       </Head>
 
-      <main className={`relative h-[inherit] p-for-nav`}>
+      <main className={`relative min-h-[inherit] p-for-nav`}>
         {/* Hero */}
         <Hero {...hero} />
 
@@ -60,11 +60,12 @@ const Home: React.FC<Props> = ({ data }) => {
 };
 export default Home;
 
+
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const res = await getHomeData();
-  const services = await GetServicesForHome();
   const solutions = await GetSolutionsForHome();
   const coaches = await GetCoachesData(true);
+  const services = await GetServices(true);
 
   return {
     props: {

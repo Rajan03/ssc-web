@@ -1,10 +1,15 @@
-import {Navbar, ErrorBoundary} from '@/components';
+import {ErrorBoundary, Footer, Navbar} from '@/components';
 import '@/styles/globals.css';
 import type {AppProps} from 'next/app';
 import {Montserrat} from 'next/font/google';
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import Error from "@/pages/_error";
+import {TeamModal} from "@/modules/teams";
+import {ContactModal} from "@/modules/contact";
+import {ResourceModal} from "@/modules/resources";
+import {Toaster} from "react-hot-toast";
+import {useNavState} from "@/hooks/navState";
 
 // Font import
 const font = Montserrat({
@@ -18,12 +23,14 @@ const Loading = () => <div
 export default function App({Component, pageProps}: AppProps) {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
+    const {setIsOpen} = useNavState();
 
     useEffect(() => {
         const handleStart = () => {
             setIsLoading(true);
         }
         const handleComplete = () => {
+            setIsOpen(false);
             setIsLoading(false);
         }
 
@@ -38,18 +45,27 @@ export default function App({Component, pageProps}: AppProps) {
         }
     }, [router]);
 
-    // TODO: Error Boundary for the entire app Suspense
     return (
-        <div className={'h-screen w-full ' + font.className}>
-            <Navbar/>
+        <>
+            <Toaster position={'top-right'}/>
+            <TeamModal/>
+            <ContactModal/>
+            <ResourceModal/>
 
-            {/* Loading Spinner */}
-            {isLoading && <Loading/>}
+            <div className={'min-h-screen w-full ' + font.className}>
+                <Navbar/>
 
-            {/* Page Content */}
-            <ErrorBoundary fallback={<Error/>}>
-                <Component {...pageProps} />
-            </ErrorBoundary>
-        </div>
+                {/* Loading Spinner */}
+                {isLoading && <Loading/>}
+
+                {/* Page Content */}
+                <ErrorBoundary fallback={<Error/>}>
+                    <Component {...pageProps} />
+                </ErrorBoundary>
+
+                {/* Footer */}
+                <Footer/>
+            </div>
+        </>
     );
 }

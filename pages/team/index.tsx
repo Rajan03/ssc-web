@@ -4,8 +4,8 @@ import {PageBanner, TeamCard, NoDataFound} from "@/components";
 import {GetStaticProps} from "next";
 import {ITeamPage} from "@/types";
 import {getTeamPage} from "@/services/sanityService";
-import {GetCoachesData} from "@/services/HomePageService";
-import FAQSection from "@/modules/teams/FAQSection";
+import {GetCoachesData} from "@/services/AppService";
+import {FAQSection} from "@/modules/teams";
 
 // Component Props
 type Props = {
@@ -20,7 +20,7 @@ const Team: React.FC<Props> = ({data}) => {
             <Head>
                 <title>SSC | Team</title>
             </Head>
-            <main className={`relative h-[inherit] p-for-nav`}>
+            <main className={`relative min-h-[inherit] p-for-nav`}>
 
                 {/* Page Banner */}
                 <PageBanner route={banner.subtitle} title={banner.title} image={banner.image}/>
@@ -51,7 +51,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     return {
         props: {
             data: res
-        }
+        },
+        revalidate: 20,
     };
 }
 

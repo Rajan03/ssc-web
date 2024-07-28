@@ -2,27 +2,46 @@ import {CardsSection, ContactForm} from "@/modules/contact";
 import Head from "next/head";
 import React from "react";
 import {PageBanner} from "@/components";
+import {GetStaticProps} from "next";
+import {getContactPage} from "@/services/sanityService";
+import {IContactPage} from "@/types/sanity";
 
-const Contact = () => {
+interface Props {
+    data: IContactPage;
+}
+
+const Contact: React.FC<Props> = ({data}) => {
+
+    if (!data) return (<></>);
+
     return (
         <>
             <Head>
                 <title>SSC | Contact</title>
             </Head>
 
-            <main className={`relative h-[inherit] p-for-nav`}>
+            <main className={`relative min-h-[inherit] p-for-nav`}>
                 {/*Banner */}
-                <PageBanner title={'Contact Us'} route={'Home | Contact Us'}
-                            image={'https://img.freepik.com/free-photo/friendly-atmosphere-group-young-freelancers-office-have-conversation-smiling_146671-13630.jpg?size=626&ext=jpg&ga=GA1.1.745640877.1667035334&semt=ais'}/>
+                <PageBanner title={data.banner.title} route={data.banner.subtitle} image={data.banner.image} />
 
                 {/*Cards */}
-                <CardsSection/>
+                <CardsSection card={data.contactInfo} />
 
                 {/*Contact Form */}
-                <ContactForm/>
+                <ContactForm />
             </main>
         </>
     )
 }
 
+export const getStaticProps: GetStaticProps<Props> = async () => {
+    const data = await getContactPage();
+
+    return {
+        props: {
+            data
+        },
+        revalidate: 20,
+    }
+}
 export default Contact

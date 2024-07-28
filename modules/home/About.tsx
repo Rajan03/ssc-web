@@ -3,13 +3,7 @@ import {SanityAboutHome} from '@/types';
 import Image from 'next/image';
 import React from 'react';
 
-const About: React.FC<SanityAboutHome> = ({
-                                              title,
-                                              subtitle,
-                                              description,
-                                              count,
-                                              images,
-                                          }) => {
+const About: React.FC<SanityAboutHome> = ({title, subtitle, description, count, images}) => {
     return (
         <>
             <div className="min-h-full container mx-auto gap-y-16 gap-x-8 flex flex-col lg:flex-row py-8 sm:py-12">
@@ -54,7 +48,7 @@ const About: React.FC<SanityAboutHome> = ({
                     <AnimatedBtn
                         text="Discover More"
                         className="mt-12 text-xl"
-                        onClick={() => console.log('Hello Hero Btn')}
+                        link="/about#services"
                     />
                 </div>
             </div>

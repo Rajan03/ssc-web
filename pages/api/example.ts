@@ -22,7 +22,7 @@ export default async function handler(
  * GET method
  * @param req
  * @param res
- * @description Get HOME page data from sanity studion via sanityGet helper function
+ * @description Get HOME page data from sanity studio via sanityGet helper function
  */
 const GET = async (req: NextApiRequest, res: NextApiResponse) => {
   try {

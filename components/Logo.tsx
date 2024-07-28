@@ -1,13 +1,14 @@
-import LOGO from '@/public/HLogo.png';
 import Image from 'next/image';
 
-const Logo = () => {
+const Logo = ({url}: {url: string}) => {
   return (
     <Image
       priority
-      src={LOGO}
+      src={url}
       alt={''}
-      className="w-[18rem] h-full aspect-video"
+        width={100}
+        height={100}
+      className="w-[18rem] h-full aspect-w-4 aspect-h-3"
     />
   );
 };
